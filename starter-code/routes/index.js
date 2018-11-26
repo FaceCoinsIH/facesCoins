@@ -12,18 +12,6 @@ router.get('/', (req, res, next) => {
     res.render('index');
 });
 
-router.get('/delete/:id', (req, res) => {
-    User.findByIdAndRemove(req.params.id)
-        .then(x =>
-            Comments.remove({ author: req.params.id }, function(err, data) {
-                if (err) {
-                    res.send("Error");
-                } else {
-                    res.redirect('/')
-                }
-            }),
-        )
-        .catch(err => console.log(err));
-})
+
 
 module.exports = router;
