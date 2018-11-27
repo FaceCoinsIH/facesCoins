@@ -10,21 +10,22 @@ const bcryptSalt = 10;
 
 
 router.get("/login", (req, res, next) => {
-  res.render("auth/login", { "message": req.flash("error") });
+    res.render("auth/login", { "message": req.flash("error") });
 });
 
 router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
+    successRedirect: "/",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
 }));
 
 router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
+    res.render("auth/signup");
 });
 
 router.post("/signup", (req, res, next) => {
+
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
@@ -58,21 +59,13 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email: email
-    });
 
-    newUser.save()
-    .then(() => {
-      res.redirect("/");
-    })
-    .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
-    })
-  });
+    });
 });
 
 router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/");
+    req.logout();
+    res.redirect("/");
 });
 
 module.exports = router;

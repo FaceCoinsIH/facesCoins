@@ -7,7 +7,7 @@ const user = new Schema({
     email: { type: String, unique: true },
     name: String,
     lastName: String,
-    author: { type: Schema.Types.ObjectId, ref: 'Comments' }
+
 }, {
     timestamps: {
         createdAt: "created_at",

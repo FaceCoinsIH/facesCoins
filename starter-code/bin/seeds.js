@@ -5,12 +5,17 @@
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+
 const User = require("../models/User");
+const Post = require("../models/Post");
+const News = require("../models/News");
+const Comments = require("../models/Comments");
+
 
 const bcryptSalt = 10;
 
 mongoose
-    .connect('mongodb://localhost/starter-code', { useNewUrlParser: true })
+    .connect('mongodb://localhost/facecoins', { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
@@ -19,13 +24,19 @@ mongoose
     });
 
 
-let generateUser = {
-    username: 'stevenzzzzz',
+let generateUser = [{
+    username: 'Paco',
     password: bcrypt.hashSync('steven', bcrypt.genSaltSync(bcryptSalt)),
     email: 'steven@gmail.com',
     name: 'steven',
     lastName: 'Ruiz'
-}
+}, {
+    username: 'Juan',
+    password: bcrypt.hashSync('steven', bcrypt.genSaltSync(bcryptSalt)),
+    email: 'steven@gmail11111.com',
+    name: 'steven',
+    lastName: 'Ruiz'
+}]
 
 let generatePost = {
     title: 'proyecto',
@@ -49,14 +60,25 @@ let generateNews = {
 
 
 User.deleteMany()
-    .then(() => {
-        return User.create(users)
+
+.then(() => {
+        return User.create(generateUser)
     })
     .then(usersCreated => {
-        console.log(`${usersCreated.length} users created with the following id:`);
-        console.log(usersCreated.map(u => u._id));
+        console.log(usersCreated)
+        generateComments.author = usersCreated[0]._id;
+
+        return Comments.create(generateComments)
+    })
+    .then(comment => {
+        generatePost.comments = [comment._id];
+        return Post.create(generatePost);
     })
     .then(() => {
+        return News.create(generateNews);
+    })
+
+.then(() => {
         // Close properly the connection to Mongoose
         mongoose.disconnect()
     })

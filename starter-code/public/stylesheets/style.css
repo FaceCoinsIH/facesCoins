@@ -1,4 +1,5 @@
 body {
+
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
@@ -6,3 +7,24 @@ a {
   color: #00B7FF; }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+.topNews,
+p {
+    padding: 40px;
+}
+
+.coins {
+    padding: 40px;
+}
+
+.generalNews {
+    padding: 40px;
+}
+
+.blockEvents {
+    padding: 40px;
+}
+

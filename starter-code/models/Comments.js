@@ -5,7 +5,7 @@ const comments = new Schema({
     title: String,
     content: String,
     comments: String,
-    author: { type: Schema.Types.ObjectId, ref: 'Post' }
+    author: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: {
         createdAt: "created_at",
