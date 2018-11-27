@@ -45,13 +45,9 @@ router.get("/getCripto", (res, req, next) => {
     insertNews(response.articles);
   });
 
-
   res.redirec('/');
 
-
 });
-
-
 
 function insertNews(array_news){
 
