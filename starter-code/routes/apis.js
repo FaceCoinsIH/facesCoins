@@ -12,6 +12,8 @@ const NEWS_KEY = process.env.NEWS_KEY;
 const TICKET_KEY = process.env.TICKET_KEY;
 
 
+
+
 const coinmarketcap = new CoinMarketCap();
 const newsapi = new NewsAPI(NEWS_KEY);
 
