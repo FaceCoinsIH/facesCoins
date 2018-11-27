@@ -8,9 +8,9 @@ const User = require("../models/User");
 const News = require("../models/News");
 
 /* GET home page */
-router.get('/', (req, res, next) => {
-    res.render('index');
-});
+// router.get('/', (req, res, next) => {
+//     res.render('index');
+// });
 
 
 

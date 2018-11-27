@@ -19,18 +19,20 @@ router.get('/', (req, res, next) => {
 router.get('/delete/:id', (req, res) => {
     User.findByIdAndRemove(req.params.id)
         .then(x => {
-                console.log(x)
-                Comments.remove({ author: req.params.id }, function(err, data) {
-                    if (err) {
-                        res.send("Error");
-                    } else {
-                        res.redirect('/')
-                    }
-                })
-            }
-
-        )
+            console.log(x)
+            Comments.remove({ author: req.params.id }, function(err, data) {
+                if (err) {
+                    res.send("Error");
+                } else {
+                    res.redirect('/')
+                }
+            })
+        })
         .catch(err => console.log(err));
+})
+
+router.get('/main', (req, res) => {
+    res.render('auth/main');
 })
 
 module.exports = router;
