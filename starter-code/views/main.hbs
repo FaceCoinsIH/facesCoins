@@ -1,0 +1,93 @@
+
+<section class="topNews container">
+    <div class="row">
+        {{#each news}}
+            <div class="col columnNews" style="background-image:url('{{this.image}}'); background-repeat: no-repeat; height: 300px; width: 300px; object-fit: cover;"> 
+                <p>{{this.title}}</p>
+            </div>
+        {{/each}}
+    </div>
+</section>
+
+
+<section class="coins container">
+
+    <div class="row">
+        {{#each coins}}
+        {{!-- <div class="col-4 coins">
+            <p>{{this.name}}| {{this.symbol}}</p>
+            <p>{{this.price_usd}}</p>
+            <a>{{this.percent_change_1h}}</a>
+        </div> --}}
+
+        <div class="card row col-4 coins">
+            {{!-- <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="images/office.jpg">
+            </div> --}}
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">
+                    <i class="material-icons right fas fa-ellipsis-v"></i>
+                    <p>{{this.symbol}}</p>
+                    <p>{{this.price_usd}}</p>
+                    <a>{{this.percent_change_1h}}</a>
+                </span>
+                <p><a href="#">More information</a></p>
+            </div>
+            <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">{{this.name}}<i class="fa fa-times"></i></span>
+                <p>Here is some more information about this product that is only revealed once clicked on.</p>
+            </div>
+        </div>
+        
+        {{/each}}
+    </div>
+</section>
+
+
+
+{{!-- <section class="generalNews container">
+
+
+
+
+
+<h1> GENERAL NEWS</h1>
+    <div class="row">
+        {{#each news}}
+        <div class="col">
+            <p>{{this.title}}</p>
+        </div>
+
+        <div class="col">
+            <p>{{this.title}}</p>
+        </div>
+        
+        <div class="col">
+            <p>{{this.title}}</p>
+        </div>
+        {{/each}}
+
+    </div>
+    
+
+</section> --}}
+
+
+<section>
+    <h1>BLOCKCHAIN EVENTS</h1>
+        <div class="blockEvents row">
+            <div class="col">
+                <p>xxxxxxxxxxxxxxxxx</p>
+            </div>
+
+            <div class="col">
+                <p>xxxxxxxxxxxxxxxxx</p>
+            </div>
+
+            <div class="col">
+                <p>xxxxxxxxxxxxxxxxx</p>
+            </div>
+        </div>
+
+</section>
+

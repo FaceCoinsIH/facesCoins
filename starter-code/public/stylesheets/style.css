@@ -1,5 +1,4 @@
 body {
-    padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -10,13 +9,29 @@ a {
 
 /*# sourceMappingURL=style.css.map */
 
-.topNews,
-p {
-    padding: 40px;
+nav {
+    background-color: white;
+}
+
+.columnNews {
+    margin: 13px;
+    color: white;
+    border-radius: 25px;
+}
+
+.columnNews p {
+    position: relative;
+    top: 70%;
+    font-weight: bold;
+    font-weight: 900;
 }
 
 .coins {
-    padding: 40px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
 }
 
 .generalNews {
