@@ -1,37 +1,35 @@
-const express         = require("express");
-const passport        = require('passport');
-const router          = express.Router();
-const User            = require("../models/User");
-
+const express = require("express");
+const passport = require("passport");
+const router = express.Router();
+const User = require("../models/User");
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-
 router.get("/login", (req, res, next) => {
-    res.render("auth/login", { "message": req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
 });
 
-router.post("/login", passport.authenticate("local", {
+router.post(
+  "/login",
+  passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/auth/login",
     failureFlash: true,
     passReqToCallback: true
-}));
+  })
+);
 
 router.get("/signup", (req, res, next) => {
-    res.render("auth/signup");
+  res.render("auth/signup");
 });
 
 router.post("/signup", (req, res, next) => {
-
   const username = req.body.username;
   const password = req.body.password;
   const email = req.body.email;
 
-  
-  
   if (username === "" || password === "" || email === "") {
     res.render("auth/signup", { message: "Please fully complete the form" });
     return;
@@ -39,18 +37,16 @@ router.post("/signup", (req, res, next) => {
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
-      
       res.render("auth/signup", { message: "The username already exists" });
       return;
     }
 
-
-    User.findOne({email},'email',(err,email)=>{
-      if(email !== null){
-        res.render("auth/signup", {message: "The email already exists" })
+    User.findOne({ email }, "email", (err, email) => {
+      if (email !== null) {
+        res.render("auth/signup", { message: "The email already exists" });
         return;
       }
-    })
+    });
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
@@ -59,13 +55,13 @@ router.post("/signup", (req, res, next) => {
       username,
       password: hashPass,
       email: email
-
     });
+  });
 });
 
 router.get("/logout", (req, res) => {
-    req.logout();
-    res.redirect("/");
+  req.logout();
+  res.redirect("/");
 });
 
 module.exports = router;

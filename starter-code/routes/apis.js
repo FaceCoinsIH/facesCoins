@@ -17,7 +17,6 @@ const newsapi = new NewsAPI(NEWS_KEY);
 
 
 
-
 router.get("/getCripto", (res, req, next) => {
   console.log('Hacemos peticiones iniciales a la base de datos');
 
@@ -45,7 +44,6 @@ router.get("/getCripto", (res, req, next) => {
     insertNews(response.articles);
   });
 
-  res.redirec('/');
 
 });
 
