@@ -1,7 +1,8 @@
-const express = require("express");
-const passport = require('passport');
-const router = express.Router();
-const User = require("../models/User");
+const express         = require("express");
+const passport        = require('passport');
+const router          = express.Router();
+const User            = require("../models/User");
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -42,7 +43,6 @@ router.post("/signup", (req, res, next) => {
       return;
     }
 
-    
 
     User.findOne({email},'email',(err,email)=>{
       if(email !== null){

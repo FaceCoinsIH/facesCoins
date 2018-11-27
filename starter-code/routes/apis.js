@@ -16,39 +16,40 @@ const coinmarketcap = new CoinMarketCap();
 const newsapi = new NewsAPI(NEWS_KEY);
 
 
-router.get("/getCripto", (res, req, next) => {
 
-  axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
-  .then(function (response) {
-    // console.log("AQUIIIIIIIIIIIII EMPIEZAAAAAAA")
-     //console.log(response.data._embedded.events[0].name);
-    insertEvents(response.data._embedded.events);
+
+router.get("/getCripto", (res, req, next) => {
+  console.log('Hacemos peticiones iniciales a la base de datos');
+
+  /* get Events, Ticketmaster */
+
+   axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
+    .then(function (response) {
+  insertEvents(response.data._embedded.events);
   })
   .catch(function (error) {
     console.log(error);
   });
 
 
-  //  coinmarketcap.multi(coins => {
-  //   insertCoins(coins.getTop(6));
+   /* get Coins, CoinMarket */
+   coinmarketcap.multi(coins => {
+    insertCoins(coins.getTop(6));
+  });
 
-  //   });
-  // newsapi.v2
-  //   .topHeadlines({
-  //     sources: "crypto-coins-news"
-      
-  //   })
-  //   .then(response => {
-  //     coinmarketcap.multi(coins => {
-  //       // Prints information about top 10 cryptocurrencies
-  //     });
-      
-  //      // console.log(response.articles);
-  //       insertNews(response.articles);
-  //   });
+   /* get News, News Api */
+   newsapi.v2.topHeadlines({
+      sources: "crypto-coins-news"   
+  })  
+  .then(response => {
+    insertNews(response.articles);
+  });
+
+
+  res.redirec('/');
+
+
 });
-
-
 
 
 
@@ -61,16 +62,13 @@ function insertNews(array_news){
       content: element.content,
       date: element.publishedAt,
       image: element.urlToImage,
-
     });
 
     newNews.save()
     .then(() => {
-     // res.redirect("/");
-     console.log("New added");
+     console.log("New News added");
     })
     .catch(err => {
-      //res.render("auth/signup", { message: "Something went wrong" });
       console.log("Error");
     }) 
  })
@@ -90,11 +88,9 @@ function insertCoins(array_coins){
 
     newCoin.save()
     .then(() => {
-     // res.redirect("/");
-     console.log("New added");
+     console.log("New Coin added");
     })
     .catch(err => {
-      //res.render("auth/signup", { message: "Something went wrong" });
       console.log("Error");
     })
 
@@ -106,33 +102,29 @@ function insertEvents(array_events){
  
 
   array_events.forEach(function(element){
-    console.log("function eventsssss", element.name);
-
-   var name= element.name;
-   var id= element.id;
-   var  description= element.description;
-   var  city= element.place.city.name;
-   var  country=element.country.name;
-   var  address=element.address.line1;
-   var   location=[element.location.latitude,element.location.longitude];
-   var   sales= [element.public.startDateTime,element.public.endDateTime];
-  
-    const newEvent = new Events({
-
+    var newEvent = new Events({
+       name: element.name,
+       id: element.id,
+       description: element.description,
+       city: element.place.city.name,
+       country:element.place.country.name,
+       address:element.place.address.line1,
+       location:[element.place.location.latitude,element.place.location.longitude],
+       sales: [element.sales.public.startDateTime,element.sales.public.endDateTime],
       
     });
+
+    newEvent.save()
+    .then(() => {
+     console.log("New event added");
+    })
+    .catch(err => {
+      console.log("Error");
+    })
   })
 
 
-  // newEvent.save()
-  // .then(() => {
-  //  // res.redirect("/");
-  //  console.log("New added");
-  // })
-  // .catch(err => {
-  //   //res.render("auth/signup", { message: "Something went wrong" });
-  //   console.log("Error");
-  // })
+ 
 
 }
 
