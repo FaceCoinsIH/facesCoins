@@ -1,40 +1,73 @@
-<div class="pageTitle">
+
+<div class="listCoins">
+    <script src="/javascripts/navDates.js"></script>
+</div>
+
+<div class="pageTitle" style="background-image:url('http://infocoin.net/wp-content/uploads/2018/05/KryptoMoney.com-BIK-Credit-Polish-Bank-Poland-Blockchain.jpeg'); background-repeat:repeat-x;height:193px;">
     <div class="row container">
         <div class="content">
             <h1><span>{{this.name}} | {{this.symbol}}</span></h1>
             
         </div>
-        <div class="coinStats">
-            <div class="priceStats">
-                <div>
-                    <span>1H</span>
-                    <span>{{this.percent_change_1h}}</span>
-                </div>
+        <div class="row blockDates">
+            <div class="coinStats">
+                <div class="priceStats">
+                    <div>
+                        <span>1H</span>
+                        <span>{{this.percent_change_1h}}</span>
+                    </div>
 
-                <div>
-                    <span>24H</span>
-                    <span>{{this.percent_change_24h}}</span>
-                </div>
+                    <div>
+                        <span>24H</span>
+                        <span>{{this.percent_change_24h}}</span>
+                    </div>
 
-                <div>
-                    <span>7D</span>
-                    <span>{{this.percent_change_7D}}</span>
-                </div>
+                    <div>
+                        <span>7D</span>
+                        <span>{{this.percent_change_7d}}</span>
+                    </div>
 
+                </div>
+            </div>
+
+            <div class="coinDates">
+                <div class="coinPrice">
+                    <div class="price">
+                        <span>
+                            ${{this.price_usd}} 
+                        </span><br>
+                        <span>
+                            Market pairs:{{this.market_cap_usd}}
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
+    
+
+</div>
+
+<div class="row graphTwitter">
+    <div class="graph">
+        <script src="/javascripts/graph.js"></script>
     </div>
-
+    
+    <div class="twitter  ">
+        <a class="twitter-timeline" data-width="800" data-height="620" data-theme="light" href="https://twitter.com/TwitterDev?ref_src=twsrc%5Etfw">Tweets
+            by TwitterDev</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
 </div>
 
-<div>
 
-</div>
-<p>Price: {{this.price_usd}}$</p>
-<p>Market: {{this.market_cap_usd}}</p>
-<p>%7d: {{this.percent_change_7d}}</p>
-<p>%24h: {{this.percent_change_24h}}</p>
-<p>%1h: {{this.percent_change_1h}}</p>
-<script src="/javascripts/graph.js"></script>
+    
+    
+
+
+{{!-- <script>
+    window.coinString = {{{coinString}}};
+</script> --}}
+
+
 
 
