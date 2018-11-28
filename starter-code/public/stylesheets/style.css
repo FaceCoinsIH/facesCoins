@@ -1,5 +1,7 @@
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 a {
@@ -9,9 +11,8 @@ a {
 
 /*# sourceMappingURL=style.css.map */
 
-nav {
-    background-color: white;
-}
+
+/* NEWS */
 
 .columnNews {
     margin: 13px;
@@ -40,4 +41,47 @@ nav {
 
 .blockEvents {
     padding: 40px;
+}
+
+.boxLogin {
+    margin-left: 30px;
+}
+
+.brand-logo>img {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+
+/* Menu - profile */
+
+.bg-card-user {
+    background: rgba(0, 77, 64, .5);
+    padding: 50px 100px;
+    position: relative;
+    width: 50%;
+    right: -20%;
+    margin: 30px;
+}
+
+.truncate>img {
+    width: 180px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+
+/* LOGIN */
+
+.logueo {
+    /* PARALLAX */
+    height: 700px!important;
+}
+
+.loginBox {
+    border: 1px solid #FFF;
+    margin: 20px 10px;
+    background-color: rgba(255, 255, 255, .7);
+    padding: 28px;
 }

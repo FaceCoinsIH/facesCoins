@@ -55,5 +55,10 @@ router.get('/main', (req, res, next) => {
 
 })
 
+router.get('/coin', (req, res, next) => {
+    res.render('coin');
+})
+
+
 
 module.exports = router;
