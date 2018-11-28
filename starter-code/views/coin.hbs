@@ -5,23 +5,5 @@
 <p>%24h: {{this.percent_change_24h}}</p>
 <p>%1h: {{this.percent_change_1h}}</p>
 <script src="/javascripts/graph.js"></script>
-<a class="twitter-timeline"
-  href="https://twitter.com/{screen_name}">
-Tweets by @{screen_name}
-</a>
 
 
-<div id="container" style="width: 200px; height:200px">
-    <a class="twitter-timeline"
-  href="https://twitter.com/twitterdev">
-Tweets by @TwitterDev
-</a>
-</div>
-
-<script>twttr.widgets.createTimeline(
-  {
-    sourceType: "profile",
-    screenName: "TwitterDev"
-  },
-  document.getElementById("container")
-);</script>
