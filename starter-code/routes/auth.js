@@ -1,8 +1,12 @@
 const express = require("express");
+
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
+
+
+
 
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
@@ -27,6 +31,7 @@ router.get("/signup", ensureLoggedOut(),(req, res, next) => {
   res.render("auth/signup");
 });
 
+
 router.post("/signup",ensureLoggedOut(), (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
@@ -50,8 +55,11 @@ router.post("/signup",ensureLoggedOut(), (req, res, next) => {
       }
     });
 
-    const salt = bcrypt.genSaltSync(bcryptSalt);
-    const hashPass = bcrypt.hashSync(password, salt);
+
+            res.render("auth/signup", { message: "The username already exists" });
+            return;
+        }
+
 
     const newUser = new User({
       username,
@@ -62,6 +70,7 @@ router.post("/signup",ensureLoggedOut(), (req, res, next) => {
     newUser.save((err) => {
       if (err){ next(null, false, { message: newUser.errors }) }
       res.redirect("/");
+
     });
   });
 });
@@ -72,3 +81,4 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
+

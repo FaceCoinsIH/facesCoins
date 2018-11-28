@@ -1,5 +1,6 @@
 function initMap() {
 
+
   var coordinates = {lat:40.416775, lng: -3.703790};
     
   ltd = document.getElementById('ltd').value;
@@ -20,3 +21,4 @@ function initMap() {
 }
 
 initMap();
+
