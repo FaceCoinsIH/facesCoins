@@ -150,3 +150,23 @@ a {
 
 
 
+.a-button:hover{
+    color: white
+}
+
+.buttons-login-width{
+    width: 20rem;    
+}
+
+.a-button {
+    background-color: white!important;
+    color: rgb(35, 151, 135)!important;
+    border: 1px solid rgb(35, 151, 135)!important ;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
+}
+
+

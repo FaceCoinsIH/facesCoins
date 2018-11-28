@@ -6,11 +6,12 @@ const Coins = require("../models/Coins");
 const Post = require("../models/Post");
 const Comments = require("../models/Comments");
 const uploadCloud = require("../config/cloudinary.js");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 
 
 
-router.get("/showEvent/:id", (req, res, next) => {
+router.get("/showEvent/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
     var eventId = req.params.id;
 
     Events.findById(eventId)
@@ -35,7 +36,7 @@ router.get("/showCoin/:id", (req, res, next) => {
 
 });
 
-router.get("/createPost", (req, res, next) => {
+router.get("/createPost", ensureLoggedIn('/auth/login'), (req, res, next) => {
 
     res.render("createPost");
 
@@ -60,7 +61,7 @@ router.post("/createPost", uploadCloud.single("photo"), (req, res) => {
 });
 
 
-router.get("/viewPost/:id", (req, res, next) => {
+router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
     var postId = req.params.id;
 
     Post.findById(postId)

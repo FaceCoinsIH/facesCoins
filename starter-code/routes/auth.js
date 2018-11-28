@@ -6,14 +6,14 @@ const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-router.get("/login", ensureLoggedOut(), (req, res, next) => {
+router.get("/login", (req, res, next) => {
     res.render("auth/login", { message: req.flash("error") });
 });
 
 router.post(
 
   "/login",
-  ensureLoggedOut(),
+        
   passport.authenticate("local", {
     successRedirect: "/main",
     failureRedirect: "/auth/login",
