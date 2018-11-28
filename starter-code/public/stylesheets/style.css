@@ -1,13 +1,13 @@
 body {
-
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-
 a {
-  color: #00B7FF; }
+    color: #00B7FF;
+}
+
 
 /*# sourceMappingURL=style.css.map */
 
@@ -45,7 +45,6 @@ a {
 .blockEvents {
     padding: 40px;
 }
-
 
 .boxLogin {
     margin-left: 30px;
@@ -86,6 +85,62 @@ a {
 .loginBox {
     margin: 20px 10px;
     padding: 28px;
+}
+
+
+
+/* PAGE COINS*/
+
+.coinStats {
+    margin: 43px;
+}
+
+.price {
+    margin: 46px;
+}
+
+.container {
+    color: white;
+    font-weight: bold;
+}
+
+.blockDates {
+    position: relative;
+    left: 38%;
+    border: 2px solid white;
+    border-top: 0;
+    border-radius: 15%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    height: 70px;
+}
+
+.blockDates span {
+    position: relative;
+    bottom: 45px;
+}
+
+.graphTwitter {
+    position: relative;
+    height: 320px;
+}
+
+.graph {
+    width: 700px;
+    left: 15%;
+}
+
+.twitter {
+    height: 500px;
+    width: 740px;
+}
+
+.twitter a {
+    position: relative;
+    top: 20px;
+    background-color: black;
 }
 
 .loginBox {
