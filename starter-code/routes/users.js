@@ -7,17 +7,12 @@ const Post = require("../models/Post");
 const User = require("../models/User");
 const News = require("../models/News");
 const Coins = require("../models/Coins");
+const Events = require("../models/Events");
 
 
-
-
-/* GET home page */
 router.get('/', (req, res, next) => {
-    res.render('index');
+    res.redirect('/auth/login');
 });
-
-
-
 
 
 router.get('/delete/:id', (req, res) => {
@@ -35,10 +30,6 @@ router.get('/delete/:id', (req, res) => {
 })
 
 
-// Coins.find().limit(1)
-//     .then(coins => {
-//         res.render('main', { coins });
-//     })
 
 router.get('/main', (req, res, next) => {
     var v_coins;
@@ -48,7 +39,13 @@ router.get('/main', (req, res, next) => {
 
             News.find().limit(3)
                 .then(news => {
-                    res.render('main', { news: news, coins: coins });
+                    
+                    Events.find().limit(4)
+                    .then(events =>{
+                        res.render('main', { news: news, coins: coins, events: events });
+                    })
+
+                    
                 })
                 .catch(next)
         })

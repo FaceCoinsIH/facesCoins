@@ -1,0 +1,21 @@
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-create-post{
+    width: 40rem;
+}
+
+.form-create-post h1{
+
+}
+
+.input-file-container {
+    position: relative;
+    width: 225px;
+  } 
+
+  

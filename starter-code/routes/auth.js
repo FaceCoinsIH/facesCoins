@@ -1,14 +1,8 @@
 const express = require("express");
-
 const passport = require("passport");
 const router = express.Router();
 const User = require("../models/User");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
-
-
-
-
-// Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
@@ -17,14 +11,16 @@ router.get("/login", ensureLoggedOut(), (req, res, next) => {
 });
 
 router.post(
-    "/login",
-    ensureLoggedOut(),
-    passport.authenticate("local", {
-        successRedirect: "/",
-        failureRedirect: "/auth/login",
-        failureFlash: true,
-        passReqToCallback: true
-    })
+
+  "/login",
+  ensureLoggedOut(),
+  passport.authenticate("local", {
+    successRedirect: "/main",
+    failureRedirect: "/auth/login",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+
 );
 
 router.get("/signup", ensureLoggedOut(), (req, res, next) => {
@@ -40,6 +36,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
     if (username === "" || password === "" || email === "") {
         res.render("auth/signup", { message: "Please fully complete the form" });
         return;
+
     }
 
     User.findOne({ username }, "username", (err, user) => {
@@ -56,6 +53,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
         });
 
 
+ 
 
         const newUser = new User({
             username,

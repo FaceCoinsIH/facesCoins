@@ -65,27 +65,33 @@ router.get("/viewPost/:id", (req, res, next) => {
 
     Post.findById(postId)
         .populate('author')
-        .then(post => {
-            res.render('viewPosts', post);
+
+        .populate('comments')
+        .then(post=>{
+            res.render('viewPosts',post);
+
         })
 })
 
 
-router.post("/new-comment", (req, res, next) => {
-    var comment = new Comments({
+
+  router.post("/new-comment",(req,res,next)=>{
+    const comment = new Comments({
+
         title: req.body.title,
         content: req.body.content,
-        comments: req.body.comment,
         author: req.user.id
     });
 
 
     comment.save()
         .then(comment => {
-            return Post.findByIdAndUpdate(comment.post, { $push: { comments: comment._id } })
+
+          return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
+
         })
         .then(() => {
-            res.redirect('/my-posts');
+            res.redirect(`/viewPost/${req.body.postId}`);
         })
         .catch(err => console.log(err));
 })

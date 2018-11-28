@@ -83,11 +83,10 @@ a {
 }
 
 .loginBox {
-    border: 1px solid #FFF;
     margin: 20px 10px;
-    background-color: rgba(255, 255, 255, .7);
     padding: 28px;
 }
+
 
 
 /* PAGE COINS*/
@@ -143,3 +142,11 @@ a {
     top: 20px;
     background-color: black;
 }
+
+.loginBox {
+    border: 1px solid #FFF;
+    background-color: rgba(255, 255, 255, .7);
+}
+
+
+
