@@ -1,13 +1,13 @@
 body {
-
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-
 a {
-  color: #00B7FF; }
+    color: #00B7FF;
+}
+
 
 /*# sourceMappingURL=style.css.map */
 
@@ -45,7 +45,6 @@ a {
 .blockEvents {
     padding: 40px;
 }
-
 
 .boxLogin {
     margin-left: 30px;
@@ -90,3 +89,9 @@ a {
     padding: 28px;
 }
 
+
+/* PAGE COINS*/
+
+.coinStats {
+    margin: 43px;
+}

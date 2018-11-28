@@ -1,4 +1,35 @@
-<h1>{{this.name}} | {{this.symbol}} </h1>
+<div class="pageTitle">
+    <div class="row container">
+        <div class="content">
+            <h1><span>{{this.name}} | {{this.symbol}}</span></h1>
+            
+        </div>
+        <div class="coinStats">
+            <div class="priceStats">
+                <div>
+                    <span>1H</span>
+                    <span>{{this.percent_change_1h}}</span>
+                </div>
+
+                <div>
+                    <span>24H</span>
+                    <span>{{this.percent_change_24h}}</span>
+                </div>
+
+                <div>
+                    <span>7D</span>
+                    <span>{{this.percent_change_7D}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+
+</div>
 <p>Price: {{this.price_usd}}$</p>
 <p>Market: {{this.market_cap_usd}}</p>
 <p>%7d: {{this.percent_change_7d}}</p>
