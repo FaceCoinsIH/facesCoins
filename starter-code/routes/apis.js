@@ -12,9 +12,10 @@ const NEWS_KEY = process.env.NEWS_KEY;
 const TICKET_KEY = process.env.TICKET_KEY;
 
 
+
+
 const coinmarketcap = new CoinMarketCap();
 const newsapi = new NewsAPI(NEWS_KEY);
-
 
 
 
@@ -46,12 +47,7 @@ router.get("/getCripto", (res, req, next) => {
   });
 
 
-  res.redirec('/');
-
-
 });
-
-
 
 function insertNews(array_news){
 

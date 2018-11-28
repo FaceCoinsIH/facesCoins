@@ -1,0 +1,8 @@
+<h1>{{this.title}}</h1>
+<p>{{this.content}}</p>
+<p>{{this.author.username}}</p>
+<label for="comments"> Comments:</label>
+<form action="/new-comment" method="POST">
+    <input type="text" name="comments">
+    <input type="submit" value="Comment">
+</form>
