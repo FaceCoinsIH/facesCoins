@@ -63,7 +63,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 
 
-
+app.locals.key = process.env.GOOGLE_KEY;
 
 // Enable authentication using session + passport
 app.use(session({

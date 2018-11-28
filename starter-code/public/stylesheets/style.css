@@ -1,12 +1,15 @@
 body {
+
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
+
 a {
-    color: #00B7FF;
-}
+  color: #00B7FF; }
+
+/*# sourceMappingURL=style.css.map */
 
 
 /*# sourceMappingURL=style.css.map */
@@ -42,6 +45,7 @@ a {
 .blockEvents {
     padding: 40px;
 }
+
 
 .boxLogin {
     margin-left: 30px;
@@ -85,3 +89,4 @@ a {
     background-color: rgba(255, 255, 255, .7);
     padding: 28px;
 }
+
