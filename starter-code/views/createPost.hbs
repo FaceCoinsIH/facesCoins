@@ -1,11 +1,17 @@
-<h1>Create Your Post</h1>
-<form action="/createPost" method="POST"  enctype="multipart/form-data">
-    <label for="content">Content</label>
-    <input type="text" name="content">
-    <label for="content">Title</label>
-    <input type="text" name="title">
-    <input type="submit" value="create">
-    <label for="photo">Upload image</label>
-    <input type="file" name="photo">
-     <a href="/">Back</a>
-</form>
+<div class="flex-container">
+    <div class="form-create-post">
+        <h1>Create Your Post</h1>
+
+        <form action="/createPost" method="POST" enctype="multipart/form-data">
+            <label for="content">Title</label>
+            <input type="text" name="title">
+            <label for="content">Content</label>
+            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+            <input type="submit" value="create">
+            <input class="inputfile" type="file" name="photo">
+
+        </form>
+
+
+    </div>
+</div>
