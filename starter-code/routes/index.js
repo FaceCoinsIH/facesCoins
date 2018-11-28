@@ -24,10 +24,12 @@ router.get("/showEvent/:id", (req, res, next) => {
 
 router.get("/showCoin/:id", (req, res, next) => {
     var coinId = req.params.id;
-
     Coins.findById(coinId)
-        .then(coin => {
-            res.render("coin", coin);
+        .then((coin) => {
+            console.log(coin, coin.name);
+            res.render("coin", { coin, coinName: JSON.stringify(coin.name) });
+
+
         })
         .catch(err => { console.error(err) })
 

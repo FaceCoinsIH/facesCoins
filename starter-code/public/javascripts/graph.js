@@ -1,3 +1,5 @@
+var coinsName = window.coinName;
+
 function graph() {
     baseUrl = "https://widgets.cryptocompare.com/";
     var scripts = document.getElementsByTagName("script");
@@ -11,7 +13,7 @@ function graph() {
         var s = document.createElement("script");
         s.type = "text/javascript";
         s.async = true;
-        var theUrl = baseUrl + `serve/v3/coin/chart?fsym=XRP&tsyms=USD,EUR,CNY,GBP`;
+        var theUrl = baseUrl + `serve/v3/coin/chart?fsym=XTC&tsyms=USD,EUR,CNY,GBP`;
         s.src = theUrl + (theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
         embedder.parentNode.appendChild(s);
     })();
