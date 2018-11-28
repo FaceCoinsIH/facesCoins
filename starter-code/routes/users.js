@@ -6,6 +6,10 @@ const Comments = require("../models/Comments");
 const Post = require("../models/Post");
 const User = require("../models/User");
 const News = require("../models/News");
+const Coins = require("../models/Coins");
+
+
+
 
 /* GET home page */
 router.get('/', (req, res, next) => {
@@ -19,7 +23,6 @@ router.get('/', (req, res, next) => {
 router.get('/delete/:id', (req, res) => {
     User.findByIdAndRemove(req.params.id)
         .then(x => {
-            console.log(x)
             Comments.remove({ author: req.params.id }, function(err, data) {
                 if (err) {
                     res.send("Error");
@@ -31,8 +34,31 @@ router.get('/delete/:id', (req, res) => {
         .catch(err => console.log(err));
 })
 
-router.get('/main', (req, res) => {
-    res.render('auth/main');
+
+// Coins.find().limit(1)
+//     .then(coins => {
+//         res.render('main', { coins });
+//     })
+
+router.get('/main', (req, res, next) => {
+    var v_coins;
+    Coins.find()
+        .then(coins => {
+            v_coins = coins;
+
+            News.find().limit(3)
+                .then(news => {
+                    res.render('main', { news: news, coins: coins });
+                })
+                .catch(next)
+        })
+
 })
+
+router.get('/coin', (req, res, next) => {
+    res.render('coin');
+})
+
+
 
 module.exports = router;
