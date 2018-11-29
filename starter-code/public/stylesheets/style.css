@@ -88,7 +88,6 @@ a {
 }
 
 
-
 /* PAGE COINS*/
 
 .coinStats {
@@ -99,7 +98,7 @@ a {
     margin: 46px;
 }
 
-.container {
+.containerCoin {
     color: white;
     font-weight: bold;
 }
@@ -149,4 +148,22 @@ a {
 }
 
 
+/* EVENTS */
 
+.container {
+    color: white;
+    font-weight: bold;
+}
+
+.boxEvent {
+    position: relative;
+    left: 18%;
+    margin: 5px;
+    text-align: center;
+}
+
+.profil {
+    float: right;
+    margin: 10px;
+    font-size: 50px;
+}
