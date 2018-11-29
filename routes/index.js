@@ -78,28 +78,6 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
 
 
 
-//   router.post("/new-comment",(req,res,next)=>{
-//     const comment = new Comments({
-
-//         title: req.body.title,
-//         content: req.body.content,
-//         author: req.user.id
-//     });
-
-
-
-
-//     comment.save()
-//         .then(comment => {
-
-//           return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
-
-//         })
-//         .then(() => {
-//             res.redirect(`/viewPost/${req.body.postId}`);
-//         })
-//         .catch(err => console.log(err));
-// })
 
  router.post("/new-comment",(req,res,next)=>{
     const comment = new Comments({

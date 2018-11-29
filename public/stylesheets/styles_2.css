@@ -18,4 +18,48 @@
     width: 225px;
   } 
 
+
+.container-events{
+    display: flex!important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
   
+.events-presentation{
+    font-weight: bold;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.image-gradient{
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,.5)!important;
+    position: absolute;
+}
+
+.image-gradient p{
+    margin-top: 5rem;
+    font-weight: bold;
+}
+
+.events-location{
+    margin-top: 5rem;
+}
+
+.events-link{
+    margin-top: 3rem;
+}
+
+.events-link a{ 
+    font-weight: bold;
+    color: rgb(76, 231, 231) !important;
+    text-decoration: none !important;
+}
+
+.card-coins{
+    border-radius: 20px !important;
+}
