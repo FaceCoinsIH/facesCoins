@@ -40,11 +40,15 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
 
             News.find().limit(3)
                 .then(news => {
-                    
-                    Events.find().limit(4)
-                    .then(events =>{
-                        res.render('main', { news: news, coins: coins, events: events });
-                    }) 
+
+
+                    Events.find().limit(3)
+                        .then(events => {
+                            console.log(events)
+                            res.render('main', { news: news, coins: coins, events: events });
+                        })
+
+
                 })
                 .catch(next)
         })
