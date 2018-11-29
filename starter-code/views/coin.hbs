@@ -1,4 +1,10 @@
-
+<header>
+    <nav>
+         <a href="/main">Home</a>
+        <a href="/auth/logout">Log Out</a>
+        <a href="/index/createPost">Create Post</a>
+    </nav>
+</header>
 <div class="listCoins">
     <script src="/javascripts/navDates.js"></script>
 </div>
@@ -7,6 +13,7 @@
     <div class="row container">
         <div class="content">
             <h1><span>{{coin.name}} | {{coin.symbol}}</span></h1>
+            <input id="coin_symbol" value={{coin.symbol}} hidden>
             
         </div>
         <div class="row blockDates">

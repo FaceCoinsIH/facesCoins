@@ -6,12 +6,14 @@ const CoinMarketCap = require("node-coinmarketcap");
 const NewsAPI       = require("newsapi");
 const ticketmaster  = require('ticketmaster')
 const router        = express.Router();
-const axios           = require('axios')
+const axios         = require('axios')
+const unsplash      = require('unsplash-api');
 require("dotenv").config();
 const NEWS_KEY = process.env.NEWS_KEY;
 const TICKET_KEY = process.env.TICKET_KEY;
 
-
+var clientId = process.env.UNPLASH_KEY; //this is required to verify your application's requests
+unsplash.init(clientId);
 
 
 const coinmarketcap = new CoinMarketCap();
@@ -22,29 +24,36 @@ const newsapi = new NewsAPI(NEWS_KEY);
 router.get("/getCripto", (res, req, next) => {
   console.log('Hacemos peticiones iniciales a la base de datos');
 
+
+  
   /* get Events, Ticketmaster */
 
    axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
     .then(function (response) {
-  insertEvents(response.data._embedded.events);
+     
+  
+
+        insertEvents(response.data._embedded.events);
+      
+ 
   })
   .catch(function (error) {
     console.log(error);
   });
 
 
-   /* get Coins, CoinMarket */
-   coinmarketcap.multi(coins => {
-    insertCoins(coins.getTop(6));
-  });
+  //  /* get Coins, CoinMarket */
+  //  coinmarketcap.multi(coins => {
+  //   insertCoins(coins.getTop(6));
+  // });
 
-   /* get News, News Api */
-   newsapi.v2.topHeadlines({
-      sources: "crypto-coins-news"   
-  })  
-  .then(response => {
-    insertNews(response.articles);
-  });
+  //  /* get News, News Api */
+  //  newsapi.v2.topHeadlines({
+  //     sources: "crypto-coins-news"   
+  // })  
+  // .then(response => {
+  //   insertNews(response.articles);
+  // });
 
 
 });
@@ -98,18 +107,20 @@ function insertEvents(array_events){
  
 
   array_events.forEach(function(element){
-    var newEvent = new Events({
-       name: element.name,
-       id: element.id,
-       description: element.description,
-       city: element.place.city.name,
-       country:element.place.country.name,
-       address:element.place.address.line1,
-       location:[element.place.location.latitude,element.place.location.longitude],
-       sales: [element.sales.public.startDateTime,element.sales.public.endDateTime],
-      
-    });
-
+    unsplash.searchPhotos(element.place.city.name, [1, 2, 3], 2, 20, function(error, photos, link) {
+      var newEvent = new Events({
+        name: element.name,
+        id: element.id,
+        description: element.description,
+        city: element.place.city.name,
+        country:element.place.country.name,
+        address:element.place.address.line1,
+        location:[element.place.location.latitude,element.place.location.longitude],
+        sales: [element.sales.public.startDateTime,element.sales.public.endDateTime],
+        image:photos[0].links.download
+        
+      });
+  
     newEvent.save()
     .then(() => {
      console.log("New event added");
@@ -117,10 +128,12 @@ function insertEvents(array_events){
     .catch(err => {
       console.log("Error");
     })
+    
+  })
+      
   })
 
 
- 
 
 }
 
