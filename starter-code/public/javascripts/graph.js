@@ -1,7 +1,5 @@
 var coin_symbol = document.getElementById('coin_symbol');
 
-
-
 function graph() {
 
     baseUrl = "https://widgets.cryptocompare.com/";
