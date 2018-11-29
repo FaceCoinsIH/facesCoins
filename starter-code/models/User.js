@@ -5,9 +5,10 @@ const user = new Schema({
     username: { type: String, unique: true },
     password: String,
     email: { type: String, unique: true },
-    name: String,
-    lastName: String,
-    author: { type: Schema.Types.ObjectId, ref: 'Comments' }
+    confirmationCode: {type:String, unique:true},
+    status: {type:String, enum:['Pending Confirmation','Active','Pending Confirmation'], default:'Pending Confirmation'},
+
+
 }, {
     timestamps: {
         createdAt: "created_at",

@@ -1,0 +1,192 @@
+body {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #00B7FF;
+}
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/*# sourceMappingURL=style.css.map */
+
+
+/* NEWS */
+
+.columnNews {
+    margin: 13px;
+    color: white;
+    border-radius: 25px;
+}
+
+.columnNews p {
+    position: relative;
+    top: 70%;
+    font-weight: bold;
+    font-weight: 900;
+}
+
+.coins {
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.generalNews {
+    padding: 40px;
+}
+
+.blockEvents {
+    padding: 40px;
+}
+
+.boxLogin {
+    margin-left: 30px;
+}
+
+.brand-logo>img {
+    width: 50px;
+    height: 50px;
+    margin-top: 5px;
+}
+
+
+/* Menu - profile */
+
+.bg-card-user {
+    background: rgba(0, 77, 64, .5);
+    padding: 50px 100px;
+    position: relative;
+    width: 50%;
+    right: -20%;
+    margin: 30px;
+}
+
+.truncate>img {
+    width: 180px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+
+/* LOGIN */
+
+.logueo {
+    /* PARALLAX */
+    height: 700px!important;
+}
+
+.loginBox {
+    margin: 20px 10px;
+    padding: 28px;
+}
+
+
+/* PAGE COINS*/
+
+.coinStats {
+    margin: 43px;
+}
+
+.price {
+    margin: 46px;
+}
+
+.containerCoin {
+    color: white;
+    font-weight: bold;
+}
+
+.blockDates {
+    position: relative;
+    left: 38%;
+    border: 2px solid white;
+    border-top: 0;
+    border-radius: 15%;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    height: 70px;
+}
+
+.blockDates span {
+    position: relative;
+    bottom: 45px;
+}
+
+.graphTwitter {
+    position: relative;
+    height: 320px;
+}
+
+.graph {
+    width: 700px;
+    left: 15%;
+}
+
+.twitter {
+    height: 500px;
+    width: 740px;
+}
+
+.twitter a {
+    position: relative;
+    top: 20px;
+    background-color: black;
+}
+
+.loginBox {
+    border: 1px solid #FFF;
+    background-color: rgba(255, 255, 255, .7);
+}
+
+
+/* EVENTS */
+
+.container {
+    color: white;
+    font-weight: bold;
+}
+
+.boxEvent {
+    position: relative;
+    left: 18%;
+    margin: 5px;
+    text-align: center;
+}
+
+
+.profil {
+    float: right;
+    margin: 10px;
+    font-size: 50px;
+}
+
+.a-button:hover{
+    color: white
+}
+
+.buttons-login-width{
+    width: 20rem;    
+}
+
+.a-button {
+    background-color: white!important;
+    color: rgb(35, 151, 135)!important;
+    border: 1px solid rgb(35, 151, 135)!important ;
+}
+
+.center-button{
+    display: flex;
+    justify-content: center;
+}
+
+
+

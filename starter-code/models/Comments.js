@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const comments = new Schema({
     title: String,
     content: String,
-    comments: String,
-    author: { type: Schema.Types.ObjectId, ref: 'Post' }
+    author: { type: Schema.Types.ObjectId, ref: 'User' },
+    post:  { type: Schema.Types.ObjectId, ref: 'Post' }
 }, {
     timestamps: {
         createdAt: "created_at",
