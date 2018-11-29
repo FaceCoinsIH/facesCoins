@@ -1,4 +1,13 @@
+<header>
+    <nav>
+         <a href="/main">Home</a>
+        <a href="/auth/logout">Log Out</a>
+        <a href="/index/createPost">Create Post</a>
+       
+    </nav>
+</header>
 <h1>{{this.title}}</h1>
+<img src="{{this.picPath}}" width="400px" height="400px">
 <p>{{this.content}}</p>
 <p>{{this.author.username}}</p>
 <label for="comments"> Comments:</label>
@@ -10,7 +19,7 @@
     <input type="submit" value="Comment">
     <input name="postId" value={{this._id}} hidden>
 </form>
-<div>
+<div class="comments-container">
     {{#each this.comments}}
         <h2>{{this.title}}</h2>
         <p> {{this.content}} </p>

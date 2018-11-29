@@ -48,6 +48,8 @@ router.post("/createPost", uploadCloud.single("photo"), (req, res) => {
         author: req.user.id,
         title: req.body.title,
         content: req.body.content,
+        picPath: req.file.url,
+        picName: req.file.originalname
     });
 
 
@@ -76,25 +78,67 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
 
 
 
-  router.post("/new-comment",(req,res,next)=>{
+//   router.post("/new-comment",(req,res,next)=>{
+//     const comment = new Comments({
+
+//         title: req.body.title,
+//         content: req.body.content,
+//         author: req.user.id
+//     });
+
+
+
+
+//     comment.save()
+//         .then(comment => {
+
+//           return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
+
+//         })
+//         .then(() => {
+//             res.redirect(`/viewPost/${req.body.postId}`);
+//         })
+//         .catch(err => console.log(err));
+// })
+
+ router.post("/new-comment",(req,res,next)=>{
     const comment = new Comments({
 
         title: req.body.title,
         content: req.body.content,
-        author: req.user.id
+        author: req.user.id,
+        post:req.body.postId
     });
-
 
     comment.save()
         .then(comment => {
-
           return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
-
         })
         .then(() => {
-            res.redirect(`/viewPost/${req.body.postId}`);
+            Comments.find({post:req.body.postId})
+            .then(comments=>{
+                console.log("paint comments")
+                comments.forEach(function(comment){
+                    printComments(comment);
+                })
+            })
+           
         })
         .catch(err => console.log(err));
-})
+
+ })
+
+
+
+ function printComments(comment){
+    
+    var divcomment = document.createElement("div");
+       divcomment.innerHTML = `
+        <div class="comment-info">
+            <div>${comment.title}</div>
+            <div>${comment.content}</div>
+        </div>`;
+        document.querySelector(".comments-container").append(divcomment);
+    }
 
 module.exports = router;

@@ -20,6 +20,11 @@ passport.use(new LocalStrategy({
         return;
       }
 
+      if(foundUser.status !== "Active"){
+        done(null, false, { message: 'Please, Confirm your email' });
+        return;
+      }
+
       done(null, foundUser);
     })
     .catch(err => done(err));
