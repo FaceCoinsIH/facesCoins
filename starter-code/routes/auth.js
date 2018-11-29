@@ -74,7 +74,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
             to: email,
             subject: "Email Verification",
             text: "Please click below to confirm your email address and get your access token:",
-            html: `${HOST}${token}</b>`
+            html: `<b>http://localhost:3000/auth/confirm/${token}</b>`
           })
           .then(res.render("auth/verification"))
           .catch(error => console.log(error));
