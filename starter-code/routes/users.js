@@ -8,6 +8,7 @@ const User = require("../models/User");
 const News = require("../models/News");
 const Coins = require("../models/Coins");
 const Events = require("../models/Events");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 
 router.get('/', (req, res, next) => {
@@ -31,7 +32,7 @@ router.get('/delete/:id', (req, res) => {
 
 
 
-router.get('/main', (req, res, next) => {
+router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
     var v_coins;
     Coins.find()
         .then(coins => {
@@ -39,6 +40,7 @@ router.get('/main', (req, res, next) => {
 
             News.find().limit(3)
                 .then(news => {
+
 
                     Events.find().limit(3)
                         .then(events => {
@@ -50,10 +52,9 @@ router.get('/main', (req, res, next) => {
                 })
                 .catch(next)
         })
-
 })
 
-router.get('/coin', (req, res, next) => {
+router.get('/coin', ensureLoggedIn('/auth/login'), (req, res, next) => {
     res.render('coin');
 })
 

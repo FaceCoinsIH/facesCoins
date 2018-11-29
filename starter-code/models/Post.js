@@ -5,7 +5,9 @@ const post = new Schema({
     author: { type: Schema.Types.ObjectId, ref: 'User' },
     title: String,
     content: String,
-    comments: [{ type: Schema.Types.ObjectId, ref: 'Comments' }]
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comments' }],
+    picPath:String,
+    picName:String
 }, {
     timestamps: {
         createdAt: "created_at",

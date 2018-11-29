@@ -12,7 +12,8 @@ const events = new Schema({
     sales: [],
     time_start: Date,
     time_end: Date,
-    status:String
+    status:String,
+    image:String
 
 }, {
     timestamps: {

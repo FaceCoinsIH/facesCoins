@@ -6,11 +6,12 @@ const Coins = require("../models/Coins");
 const Post = require("../models/Post");
 const Comments = require("../models/Comments");
 const uploadCloud = require("../config/cloudinary.js");
+const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
 
 
 
-router.get("/showEvent/:id", (req, res, next) => {
+router.get("/showEvent/:id", ensureLoggedIn("/auth/login"), (req, res, next) => {
     var eventId = req.params.id;
 
     Events.findById(eventId)
@@ -27,7 +28,7 @@ router.get("/showCoin/:id", (req, res, next) => {
     Coins.findById(coinId)
         .then((coin) => {
             console.log(coin, coin.name);
-            res.render("coin", { coin, coinName: JSON.stringify(coin.name) });
+            res.render("coin", { coin, coinName: JSON.stringify(coin.symbol) });
 
 
         })
@@ -35,7 +36,7 @@ router.get("/showCoin/:id", (req, res, next) => {
 
 });
 
-router.get("/createPost", (req, res, next) => {
+router.get("/createPost", ensureLoggedIn('/auth/login'), (req, res, next) => {
 
     res.render("createPost");
 
@@ -47,6 +48,8 @@ router.post("/createPost", uploadCloud.single("photo"), (req, res) => {
         author: req.user.id,
         title: req.body.title,
         content: req.body.content,
+        picPath: req.file.url,
+        picName: req.file.originalname
     });
 
 
@@ -60,7 +63,7 @@ router.post("/createPost", uploadCloud.single("photo"), (req, res) => {
 });
 
 
-router.get("/viewPost/:id", (req, res, next) => {
+router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
     var postId = req.params.id;
 
     Post.findById(postId)
@@ -75,25 +78,67 @@ router.get("/viewPost/:id", (req, res, next) => {
 
 
 
-  router.post("/new-comment",(req,res,next)=>{
+//   router.post("/new-comment",(req,res,next)=>{
+//     const comment = new Comments({
+
+//         title: req.body.title,
+//         content: req.body.content,
+//         author: req.user.id
+//     });
+
+
+
+
+//     comment.save()
+//         .then(comment => {
+
+//           return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
+
+//         })
+//         .then(() => {
+//             res.redirect(`/viewPost/${req.body.postId}`);
+//         })
+//         .catch(err => console.log(err));
+// })
+
+ router.post("/new-comment",(req,res,next)=>{
     const comment = new Comments({
 
         title: req.body.title,
         content: req.body.content,
-        author: req.user.id
+        author: req.user.id,
+        post:req.body.postId
     });
-
 
     comment.save()
         .then(comment => {
-
           return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
-
         })
         .then(() => {
-            res.redirect(`/viewPost/${req.body.postId}`);
+            Comments.find({post:req.body.postId})
+            .then(comments=>{
+                console.log("paint comments")
+                comments.forEach(function(comment){
+                    printComments(comment);
+                })
+            })
+           
         })
         .catch(err => console.log(err));
-})
+
+ })
+
+
+
+ function printComments(comment){
+    
+    var divcomment = document.createElement("div");
+       divcomment.innerHTML = `
+        <div class="comment-info">
+            <div>${comment.title}</div>
+            <div>${comment.content}</div>
+        </div>`;
+        document.querySelector(".comments-container").append(divcomment);
+    }
 
 module.exports = router;
