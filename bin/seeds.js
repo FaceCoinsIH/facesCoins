@@ -5,7 +5,7 @@
 
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
+require('dotenv').config();
 const User = require("../models/User");
 const Post = require("../models/Post");
 const News = require("../models/News");
@@ -15,7 +15,7 @@ const Comments = require("../models/Comments");
 const bcryptSalt = 10;
 
 mongoose
-    .connect('mongodb://localhost/facecoins', { useNewUrlParser: true })
+    .connect(process.env.DB, { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
