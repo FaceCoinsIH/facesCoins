@@ -27,7 +27,7 @@ router.get("/showCoin/:id", (req, res, next) => {
     var coinId = req.params.id;
     Coins.findById(coinId)
         .then((coin) => {
-            console.log(coin, coin.name);
+           
             res.render("coin", { coin, coinName: JSON.stringify(coin.symbol) });
 
 
@@ -103,42 +103,24 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
 
  router.post("/new-comment",(req,res,next)=>{
     const comment = new Comments({
-
         title: req.body.title,
         content: req.body.content,
         author: req.user.id,
         post:req.body.postId
     });
 
-    comment.save()
+   comment.save()
         .then(comment => {
-          return Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
+           Post.findByIdAndUpdate(req.body.postId,{$push:{comments:comment._id}})
+           .then(() => Comments.findOne(comment._id).populate('author').then(comment => res.json(comment)));
         })
-        .then(() => {
-            Comments.find({post:req.body.postId})
-            .then(comments=>{
-                console.log("paint comments")
-                comments.forEach(function(comment){
-                    printComments(comment);
-                })
-            })
-           
-        })
+        
         .catch(err => console.log(err));
 
  })
 
 
 
- function printComments(comment){
-    
-    var divcomment = document.createElement("div");
-       divcomment.innerHTML = `
-        <div class="comment-info">
-            <div>${comment.title}</div>
-            <div>${comment.content}</div>
-        </div>`;
-        document.querySelector(".comments-container").append(divcomment);
-    }
+
 
 module.exports = router;
