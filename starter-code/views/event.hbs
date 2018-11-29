@@ -1,17 +1,28 @@
-<header>
-    <nav> 
-        <a href="/main">Home</a>
-        <a href="/auth/logout">Log Out</a>
-        <a href="/index/createPost">Create Post</a>
-    </nav>
-</header>
-<h1>{{this.name}}</h1>
-<p>{{this.city}}, {{this.country}}</p>
-<p>{{this.description}}</p>
-<p>{{this.address}}</p>
+
+
+<div id="pagetitle" class="profile transparent-block" style="background: url(https://cryptoslate.com/wp-content/uploads/2017/11/bangkok-cover.jpg) center no-repeat; background-size: cover">
+    <div class="cointerEvent">
+        <div class="content"> <img class="logo lazyloading" alt="Beyond Blocks Summit Bangkok" src="../images/logoFaceCoins.png">
+            <h1 style="color:white; font-weight:300;">{{this.name}}</h1>
+            <div class="meta" style="margin-left:90px">  <span class="event-date" style="font-weight:bold;">{{this.city}} , {{this.country}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin-top:100px; width:1400px">
+    <div class="col">
+        <p>{{this.description}}</p>
+    </div>
+
+    <div class="col">
 <img src="{{this.image}}" width="300" height="400">
 <input id="ltd" value={{this.location.[0]}} hidden>
 <input id="lng" value={{this.location.[1]}} hidden>
-<div id="map" style="width:500px; height:500px"></div>
+<div id="map" style="width:600px; height:500px; margin-top:-100px; margin-left:60px; border:1px solid black;"></div>
+    </div>
+</div>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALOU9vnX6FjwbpYtnouPTqB8bzYs3_0S0"></script> 
 <script src="/javascripts/script.js"></script>
+
+

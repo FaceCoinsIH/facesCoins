@@ -32,7 +32,7 @@ router.get('/delete/:id', (req, res) => {
 
 
 
-router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
+router.get('/main', ensureLoggedIn('/auth/login'), (req, res, next) => {
     var v_coins;
     Coins.find()
         .then(coins => {
@@ -44,7 +44,6 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
 
                     Events.find().limit(3)
                         .then(events => {
-                            console.log(events)
                             res.render('main', { news: news, coins: coins, events: events });
                         })
 
