@@ -204,6 +204,7 @@ a {
 }
 
 
+
 /* POST */
 
 .createPost {
@@ -274,6 +275,7 @@ a {
     font-weight: 300;
 }
 
+
 .like-icon {
     color: red;
 }
@@ -326,3 +328,6 @@ a {
     width: 100%;
     clear: both;
 }
+
+
+

@@ -15,6 +15,11 @@ const user = new Schema({
 
 
 
+    image: String,
+    fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
+
+
+
 
 }, {
     timestamps: {

@@ -59,7 +59,6 @@ router.get('/main', ensureLoggedIn('/auth/login'), (req, res, next) => {
 
 
 
-
                         })
 
 
