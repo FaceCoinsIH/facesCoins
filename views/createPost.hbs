@@ -1,23 +1,53 @@
-<header>
-    <nav>
-         <a href="/main">Home</a>
-        <a href="/auth/logout">Log Out</a>
-    </nav>
-</header>
-<div class="flex-container">
-    <div class="form-create-post">
+
+<div class="flex-container createPost">
+    <form class="form-create-post">
         <h1>Create Your Post</h1>
 
         <form action="/createPost" method="POST" enctype="multipart/form-data">
-            <label for="content">Title</label>
-            <input type="text" name="title">
-            <label for="content">Content</label>
-            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
-            <input type="submit" value="create">
-            <input class="inputfile" type="file" name="photo">
+        <div class="uk-comment uk-comment-primary">
+            <header>
+                <div class="uk-width-auto">
+                    <img class="uk-comment-avatar " src="images/avatar.jpg" width="80" height="80" alt="">x
+                </div>
+                <div class="uk-width-expand">
+                    <h4 class="uk-comment-title uk-margin-remove"><a class="uk-link-reset" href="#">Author</a></h4>
+                </div>
+            </header>
+            <div class="input-field">
+                <label for="content">Title</label>
+                <input type="text" name="title">
+            </div>
+            <div class="input-field" >
+                <label for="content">Content</label>
+                <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+            <div>
+                <button class="btn waves-effect waves-light" type="submit" name="action" value="create">Submit
+                    <i class="material-icons right"> send</i>
+                </button>
+
+                <button class="btn waves-effect waves-light" type="submit" name="action" value="create">Upload photo
+                    <i class="material-icons right">add_a_photo</i>
+                </button>
+                <input type="submit" value="create">
+                <input class="inputfile" type="file" name="photo">
+            </div>
+        </div>
 
         </form>
 
 
-    </div>
+
+        <div class="flex-container">
+            <div class="form-create-post">
+                <h1>Create Your Post</h1>
+                <form action="/createPost" method="POST" enctype="multipart/form-data">
+                    <label for="content">Title</label>
+                    <input type="text" name="title">
+                    <label for="content">Content</label>
+                    <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                    <input type="submit" value="create">
+                    <input class="inputfile" type="file" name="photo">
+                </form>
+            </div>
+        </div>
 </div>

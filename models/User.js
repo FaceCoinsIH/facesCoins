@@ -12,6 +12,11 @@ const user = new Schema({
     fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
 
 
+    image: String,
+    fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
+
+
+
 }, {
     timestamps: {
         createdAt: "created_at",
