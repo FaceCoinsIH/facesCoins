@@ -30,10 +30,6 @@ router.get("/showCoin/:id", (req, res, next) => {
     Coins.findById(coinId)
         .then((coin) => {
 
-
-            console.log(coin, coin.name);
-
-
             res.render("coin", { coin, coinName: JSON.stringify(coin.symbol) });
 
 
