@@ -44,8 +44,13 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
 
                     Events.find().limit(3)
                         .then(events => {
-                            console.log(events)
-                            res.render('main', { news: news, coins: coins, events: events });
+                            
+                            User.findOne({_id: req.user.id})
+                                .then(user => {
+                                    res.render('main', { news: news, coins: coins, events: events, user: user});
+                                })
+                           
+
                         })
 
 

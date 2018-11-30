@@ -8,6 +8,9 @@ const user = new Schema({
     confirmationCode: {type:String, unique:true},
     status: {type:String, enum:['Pending Confirmation','Active','Pending Confirmation'], default:'Pending Confirmation'},
 
+    image: String,
+    fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
+
 
 }, {
     timestamps: {

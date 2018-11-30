@@ -8,7 +8,9 @@ const coins = new Schema({
     market_cap_usd: String,
     percent_change_24h: String,
     percent_change_1h: String,
-    percent_change_7d: String
+    percent_change_7d: String,
+    fav_coin:{type:Boolean, default:false}
+
 }, {
     timestamps: {
         createdAt: "created_at",

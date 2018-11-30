@@ -1,23 +1,29 @@
-// function viewProfile() {
-//     $(document).ready(function() {
-//         $('.button-collapse').sideNav('show', {
-//             menuWidth: 300, // Default is 300
-//             edge: 'left', // Choose the horizontal origin
-//             closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
-//             draggable: true, // Choose whether you can drag to open on touch screens,
-//             onOpen: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is opened
-//             onClose: function(el) { /* Do Stuff*/ }, // A function to be called when sideNav is closed
-//         }, 1000);
-//         $('.parallax').parallax();
-//     });
-// }
 
-// function waitForSideNav() {
-//     if (typeof$(".button-collapse").sideNav !== 'undefined' && $.isFunction($(".button-collapse").sideNav)) {
-//         $(".button-collapse").sideNav();
-//     } else {
-//         setTimeout(this.waitForSideNav, 100);
-//     }
-// }
+document.querySelectorAll(".btn-delete").forEach(function(element) {
+  element.onclick = function(event) {
+   
+    var coin = event.currentTarget.getAttribute("value");
+    var fav_coin = deleteFavCoin({ coin: coin })
 
-// waitForSideNav();
+    fav_coin.then(coin => printDelete(coin.data));
+  };
+});
+
+function deleteFavCoin(favCoin) {
+   
+
+  return axios
+    .post("/delete-like", favCoin)
+    .then(coin => {
+      return coin;
+    })
+    .catch(err => console.log(err));
+}
+
+
+function printDelete(coin_data){
+    var node = document.getElementById(coin_data);
+    var parent = node.parentNode;
+    parent.removeChild(node);
+}
+

@@ -28,6 +28,23 @@ router.get("/getCripto", (res, req, next) => {
   
   /* get Events, Ticketmaster */
 
+
+  //  axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
+  //   .then(function (response) {
+     
+  
+
+  //       insertEvents(response.data._embedded.events);
+      
+ 
+  // })
+  // .catch(function (error) {
+  //   console.log(error);
+  // });
+
+
+   /* get Coins, CoinMarket */
+
    axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
     .then(function (response) {
      
@@ -43,11 +60,14 @@ router.get("/getCripto", (res, req, next) => {
 
 
   //  /* get Coins, CoinMarket */
+
   //  coinmarketcap.multi(coins => {
   //   insertCoins(coins.getTop(6));
   // });
 
-  //  /* get News, News Api */
+
+   /* get News, News Api */
+
   //  newsapi.v2.topHeadlines({
   //     sources: "crypto-coins-news"   
   // })  
@@ -67,6 +87,8 @@ function insertNews(array_news){
       content: element.content,
       date: element.publishedAt,
       image: element.urlToImage,
+      url: element.url
+
     });
 
     newNews.save()
