@@ -5,12 +5,14 @@ const user = new Schema({
     username: { type: String, unique: true },
     password: String,
     email: { type: String, unique: true },
-    confirmationCode: {type:String, unique:true},
-    status: {type:String, enum:['Pending Confirmation','Active','Pending Confirmation'], default:'Pending Confirmation'},
+    confirmationCode: { type: String, unique: true },
+    status: { type: String, enum: ['Pending Confirmation', 'Active', 'Pending Confirmation'], default: 'Pending Confirmation' },
 
 
     image: String,
-    fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
+    fav_coins: [{ type: Schema.Types.ObjectId, ref: 'Coins', unique: true }]
+
+
 
 
     image: String,
