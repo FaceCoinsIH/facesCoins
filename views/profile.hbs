@@ -1,35 +1,53 @@
-<h1> Hi {{this.username}}!</h1>
-<img src="{{this.image}}">
+<section class="row" style="margin:80px">
 
+    <section style="border-radius:6%;border:4px solid black; position:relative;font-size:bold; left:5%; margin-top:-50px; height:730px; padding:40px; background:hsla(194, 95%, 24%, 0.945); color:white">
 
-
-<div>
-    {{#each this.fav_coins}}
-    <div id= "{{this._id}}">
-        <p>{{this.symbol}}</p>
-        <p>{{this.price_usd}}</p>
-        <p>{{percent_change_24h}}</p>
-        <button  class="btn-delete" value="{{this._id}}">Delete Fav</button>
+    <div>
+        {{#each this.fav_coins}}
+        <div style="margin-top:10px;" id="{{this._id}}">
+            <p>{{this.symbol}}</p>
+            <p>{{this.price_usd}}</p>
+            <p>{{percent_change_24h}}</p>
+            <button style=" margin: 20px 0; font-weight:bold;" class="btn-delete" value="{{this._id}}">Delete Fav</button>
+        </div>
+        {{/each}}
     </div>
-    {{/each}}
-</div>
 
-<div>
-    <h2>Cuenta</h2>
-    <form action="/change-data" method="POST" enctype="multipart/form-data">
-        <label for="content">Username</label>
-        <input type="text" name="username">
+    </section>
+
+    <section>
+        <div style="border:4px solid black; border-radius:2%;position:relative;font-size:bold; left:30%; margin-top:-50px; padding:40px; height:730px; background:hsla(194, 95%, 24%, 0.945);; width:650px; color:white">
+            <div style=" margin:-30px" class="row">
+                <h1 style="color:white; "> Hi {{this.username}}!</h1>
+                <img src="{{this.image}}" style="margin-left:300px;width:200px; height:200px">
+            </div>
+            
+
+        
+
+            <div >
+                <h2 style="color:white;">Account</h2>
+                <form action="/change-data" method="POST" enctype="multipart/form-data" style="margin:30px;">
+                    <label style="color:white; font-weight:bold;" for="content">Username</label>
+                    <input style="color:white; font-weight:bold;" type="text" name="username">
 
 
-        <label for="password">Password</label>
-        <input type="password" name="password">
+                    <label style="color:white; font-weight:bold;" for="password">Password</label>
+                    <input style="color:white; font-weight:bold;" type="password" name="password">
 
-        <label for="emial">Email</label>
-        <input type="email" name="email">
+                    <label style="color:white; font-weight:bold;" for="emial">Email</label>
+                    <input style="color:white; font-weight:bold;" type="email" name="email">
 
-        <input type="submit" value="Change">
-        <label for="photo">Chane Photo</label>
-        <input class="inputfile" type="file" name="photo">
-    </form>
-</div>
+                <div>
+                    <input style="margin:20px; color:black; font-weight:bold;" type="submit" value="Change">
+                    <labels style="color:white; font-weight:bold;" for="photo">Change Photo</label>
+                    <input style="margin:20px; color:white; font-weight:bold;" class="inputfile" type="file" name="photo">
+
+                </div>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+</section>
 <script src="/javascripts/profile.js"></script>
