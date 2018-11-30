@@ -5,9 +5,12 @@
 
 <div>
     {{#each this.fav_coins}}
+    <div id= "{{this._id}}">
         <p>{{this.symbol}}</p>
         <p>{{this.price_usd}}</p>
         <p>{{percent_change_24h}}</p>
+        <button  class="btn-delete" value="{{this._id}}">Delete Fav</button>
+    </div>
     {{/each}}
 </div>
 
@@ -16,6 +19,7 @@
     <form action="/change-data" method="POST" enctype="multipart/form-data">
         <label for="content">Username</label>
         <input type="text" name="username">
+
 
         <label for="password">Password</label>
         <input type="password" name="password">
@@ -28,3 +32,4 @@
         <input class="inputfile" type="file" name="photo">
     </form>
 </div>
+<script src="/javascripts/profile.js"></script>
