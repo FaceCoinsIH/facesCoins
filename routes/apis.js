@@ -28,6 +28,7 @@ router.get("/getCripto", (res, req, next) => {
   
   /* get Events, Ticketmaster */
 
+
   //  axios.get('https://app.ticketmaster.com/discovery/v2/events.json?apikey=R1eBWA9UAWncloxXZkzmuwKnv8riAxEp&keyword=blockChain&size=5')
   //   .then(function (response) {
      
