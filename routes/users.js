@@ -53,6 +53,7 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
                                     res.render('main', { news: news, coins: coins, events: events, user: user});
                                 })
 
+
                         })
 
 

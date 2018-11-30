@@ -9,6 +9,7 @@ const coins = new Schema({
     percent_change_24h: String,
     percent_change_1h: String,
 
+
     percent_change_7d: String,
     fav_coin:{type:Boolean, default:false}
 

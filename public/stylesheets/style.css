@@ -216,6 +216,7 @@ a {
 }
 
 
+
 /* POST */
 
 .createPost {
@@ -286,10 +287,8 @@ a {
     font-weight: 300;
 }
 
+
 .like-icon{
     color: red;
 }
-
-
-
 
