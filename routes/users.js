@@ -50,7 +50,12 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
                             
                             User.findOne({_id: req.user.id})
                                 .then(user => {
-                                    res.render('main', { news: news, coins: coins, events: events, user: user});
+
+                                    Post.find().limit(3)
+                                        .then(post => {
+                                            res.render('main', { news: news, coins: coins, events: events, user: user, post:post});
+
+                                        })
                                 })
 
 
