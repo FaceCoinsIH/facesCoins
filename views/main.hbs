@@ -1,131 +1,157 @@
 
-<script src="/javascripts/profile.js"></script>
+
+<script src="/javascripts/main.js"></script>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+
 
 <section>
     <ul id="slide-out" class="sidenav">
         <li>
             <div class="user-view">
                 <div class="background">
-                  
+
+
+                    <img src="/images/profile-image.jpeg">
                 </div>
-             
-                <a href="#name"><span class="white-text name">John Doe</span></a>
-                <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                <img class="circle" src="{{this.user.image}}">
+                <span class="white-text name">{{this.user.username}}</span>
+                 <span class="white-text email">{{this.user.email}}</span>
             </div>
         </li>
-        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-        <li><a href="#!">Second Link</a></li>
         <li>
-            <div class="divider"></div>
+            <a href="/profile" style="text-decoration:none">Profile</a>
         </li>
-        <li><a class="subheader">Subheader</a></li>
-        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+        <li>
+            <a href="/createPost" style="text-decoration:none">Create your post</a>
+        </li>
+        <li>
+            <a href="/auth/logout" style="text-decoration:none">Sing off</a>
+        </li>
+
     </ul>
-    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons"></i></a>
+
+
 </section>
 
 
 <section style="background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(114,131,179,1)), color-stop(100%, rgba(0,128,128,1)));height:100%;">
 
-<section class="profil">
-    <a href="" class="button-collapse" data-activates="slide-out" >
-        <i class="fas fa-align-justify"></i>
-    </a>
-</section>
+
+    <section class="profile">
+        <a href="#" class="sidenav-trigger btn" data-target="slide-out">
+            <i class="fas fa-align-justify"></i>
+        </a>
+        {{!-- <a href="#" data-target="slide-out" class="sidenav-trigger btn">Side nav demo</a> --}}
+    </section>
 
 
 
-<section class="topNews container">
-    <div class="row">
-        {{#each news}}
-            <div class="col columnNews" style="background-image:url('{{this.image}}'); background-repeat: no-repeat; height: 300px; width: 300px; object-fit: cover;"> 
-                <p>{{this.title}}</p>
+    <section class="topNews container">
+        <div class="row">
+            {{#each news}}
+            <div class="col columnNews" style="background-image:url('{{this.image}}'); background-repeat: no-repeat; height: 300px; width: 300px; object-fit: cover;">
+                <p><a style="color:white; text-decoration:none; font-weight:bolder" href="{{this.url}}">{{this.title}}</a></p>
             </div>
-        {{/each}}
-    </div>
-</section>
-
-
-
-
-
-<section class="coins container">
-
-    <div class="row">
-        {{#each coins}}
-        {{!-- <div class="col-4 coins">
-            <p>{{this.name}}| {{this.symbol}}</p>
-            <p>{{this.price_usd}}</p>
-            <a>{{this.percent_change_1h}}</a>
-        </div> --}}
-
-        <div class="card row col-4 coins">
-            {{!-- <div class="card-image waves-effect waves-block waves-light">
-                <img class="activator" src="images/office.jpg">
-            </div> --}}
-            <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">
-                    <i class="material-icons right fas fa-ellipsis-v"></i>
-                    <p>{{this.symbol}}</p>
-                    <p>{{this.price_usd}}</p>
-                    <a>{{this.percent_change_1h}}</a>
-                </span>
-                <p><a href="/showCoin/{{this._id}}">More information</a></p>
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">What is it?<i class="fa fa-times"></i><p style="font-size:15px">Built for enterprise use, XRP offers banks and payment providers a reliable, on-demand option to source liquidity for cross-border payments. 
-                </p> </span>
-                <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
+            {{/each}}
         </div>
-        
+    </section>
+
+
+
+
+
+
+    <section class="coins container">
+
+        <div class="row">
+            {{#each coins}}
+            {{!-- <div class="col-4 coins">
+                <p>{{this.name}}| {{this.symbol}}</p>
+                <p>{{this.price_usd}}</p>
+                <a>{{this.percent_change_1h}}</a>
+            </div> --}}
+
+            <div class="card row col-4 coins card-coins">
+                {{!-- <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="images/office.jpg">
+                </div> --}}
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">
+
+                        <p>{{this.symbol}}</p>
+                        <p>{{this.price_usd}}</p>
+                        <a>{{this.percent_change_1h}}</a>
+    
+                        {{#if this.fav_coin}}
+                        <i class="fas fa-heart like-icon" name="coinId" value={{this.id}}></i>
+                        {{else}}
+                        <i class="far fa-heart like-icon" name="coinId" value={{this.id}}></i>
+                        {{/if}}
+
+                    </span>
+
+                    <p><a href="/showCoin/{{this._id}}">More information</a></p>
+
+                </div>
+
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">
+                        {{this.name}} Added at your Favs <i class="fa fa-times"></i>
+                        <p style="font-size:15px">
+                        </p>
+                    </span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+
+            {{/each}}
+        </div>
+    </section>
+
+
+    <section class="row">
+        {{#each events}}
+        <div class="uk-position-relative uk-light boxEvent" style="width:300px;height:300px;" uk-slideshow>
+
+            <ul class="uk-slideshow-items" style="width:300px;height:300px;">
+
+                <li style="border: 4px solid white">
+                    <img src="{{this.image}}" alt="" uk-cover>
+                    <div class="image-gradient">
+                        <p>{{this.name}}</p>
+                    </div>
+
+                </li>
+                <li style="border: 4px solid black;background-color:gray">
+
+                    <div class="events-location">
+                        {{this.city}}, {{this.country}} <br>{{this.address}}
+
+                    </div>
+
+                    <div class="events-link">
+                        <a href="/showEvent/{{this._id}}">View Event</a>
+                    </div>
+                </li>
+
+
+
+            </ul>
+
+            <div class="uk-position-bottom-center uk-position-small container-events">
+
+                <ul class="uk-dotnav">
+                    <li uk-slideshow-item="0"><a href="#"></a></li>
+                    <li uk-slideshow-item="1"><a href="#">Item 2</a></li>
+
+                </ul>
+            </div>
+
+        </div>
         {{/each}}
-    </div>
+    </section>
 </section>
-
-
-<section class="row" >
-{{#each events}}
-    <div class="uk-position-relative uk-light boxEvent" style="width:300px;height:300px;" uk-slideshow>
-    
-
-
-    <ul class="uk-slideshow-items" style="width:300px;height:300px;">
-        
-        <li style="border: 4px solid white">
-            <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
-        </li>
-        <li style="border: 4px solid black;background-color:gray">
-            <i class="fas fa-map-marker-alt" style="color:black;"><p>{{this.city}}, {{this.country}} <br>{{this.address}}</p></i>
-        </li>
-
-    
-        
-    </ul>
-
-    <div class="uk-position-bottom-center uk-position-small">
-        <ul class="uk-dotnav">
-            <li uk-slideshow-item="0"><a href="#">Item 1</a></li>
-            <li uk-slideshow-item="1"><a href="#">Item 2</a></li>
-            <li uk-slideshow-item="2"><a href="#">Item 3</a></li>
-        </ul>
-    </div>
-   
-    </div>
-{{/each}}
-</section>
-</section>
-
-
-
-
-  
-
-
-
-    
-   
-    
-    
-
+<script src="/javascripts/likes.js"></script>
 

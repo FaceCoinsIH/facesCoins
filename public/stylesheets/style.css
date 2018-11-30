@@ -15,6 +15,7 @@ a {
 /*# sourceMappingURL=style.css.map */
 
 
+
 /* LOGIN/SIGNUP */
 
 .signUpLogin {
@@ -25,12 +26,14 @@ a {
 }
 
 
+
 /* NEWS */
 
 .columnNews {
     margin: 13px;
     color: white;
-    border-radius: 25px;
+    border-radius: 5px;
+
 }
 
 .columnNews p {
@@ -71,12 +74,15 @@ a {
 
 .bg-card-user {
     background: rgba(0, 77, 64, .5);
+
     background-size: 2000px;
+
     padding: 50px 100px;
     position: relative;
     width: 50%;
     right: -20%;
     height: 100vh;
+
 }
 
 .truncate>img {
@@ -84,6 +90,21 @@ a {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
+
+
+/* LOGIN */
+
+.logueo {
+    /* PARALLAX */
+    height: 700px!important;
+}
+
+.loginBox {
+    margin: 20px 10px;
+    padding: 28px;
+}
+
 
 
 /* PAGE COINS*/
@@ -100,6 +121,7 @@ a {
     padding: 10px;
     padding-right: 130px;
 }
+
 
 .containerCoin {
     color: white;
@@ -171,21 +193,24 @@ a {
     font-size: 50px;
 }
 
-.a-button:hover {
+
+
+.a-button:hover{
     color: white
 }
 
-.buttons-login-width {
-    width: 20rem;
+.buttons-login-width{
+    width: 20rem;    
+
 }
 
 .a-button {
     background-color: white!important;
     color: rgb(35, 151, 135)!important;
-    border: 1px solid rgb(35, 151, 135)!important;
+    border: 1px solid rgb(35, 151, 135)!important ;
 }
 
-.center-button {
+.center-button{
     display: flex;
     justify-content: center;
 }
@@ -260,3 +285,11 @@ a {
     font-family: "Roboto Slab", serif;
     font-weight: 300;
 }
+
+.like-icon{
+    color: red;
+}
+
+
+
+
