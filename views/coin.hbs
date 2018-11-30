@@ -5,6 +5,7 @@
         <a href="/index/createPost">Create Post</a>
     </nav>
 </header>
+
 <div class="listCoins">
     <script src="/javascripts/navDates.js"></script>
 </div>
@@ -15,7 +16,8 @@
         <div class="content" >
             <h1><span style="color:white">{{coin.name}} | {{coin.symbol}}</span></h1>
 
-            
+            <input id="coin_symbol" value={{coin.symbol}} hidden>
+
         </div>
         <div class="row blockDates">
             <div class="coinStats">
@@ -44,8 +46,9 @@
                         <span>
                             ${{coin.price_usd}} 
                         </span><br>
-                        <span>
-                            Market pairs:{{coin.market_cap_usd}}
+
+                        <span class="coinMarketCap">
+           Market pairs:{{coin.market_cap_usd}}
                         </span>
                     </div>
                 </div>
@@ -54,6 +57,7 @@
     
 
 </div>
+
 
 <div class="row graphTwitter">
     <div class="graph">

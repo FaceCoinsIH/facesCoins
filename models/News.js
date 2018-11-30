@@ -6,8 +6,11 @@ const news = new Schema({
     description: String,
     content: String,
     date: String,
+
     image: String,
     url: String
+
+
 }, {
     timestamps: {
         createdAt: "created_at",

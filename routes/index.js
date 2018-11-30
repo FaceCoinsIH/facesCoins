@@ -6,6 +6,7 @@ const Coins = require("../models/Coins");
 const Post = require("../models/Post");
 const Comments = require("../models/Comments");
 const User = require("../models/User");
+
 const uploadCloud = require("../config/cloudinary.js");
 const { ensureLoggedIn, ensureLoggedOut } = require("connect-ensure-login");
 
@@ -28,7 +29,11 @@ router.get("/showCoin/:id", (req, res, next) => {
     var coinId = req.params.id;
     Coins.findById(coinId)
         .then((coin) => {
-           
+
+
+            console.log(coin, coin.name);
+
+
             res.render("coin", { coin, coinName: JSON.stringify(coin.symbol) });
 
 
@@ -78,13 +83,18 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
 })
 
 
+
+
  router.post("/new-comment",(req,res,next)=>{
     const comment = new Comments({
+
         title: req.body.title,
         content: req.body.content,
         author: req.user.id,
         post:req.body.postId
     });
+
+
 
    comment.save()
         .then(comment => {
@@ -197,5 +207,6 @@ function update(val_find,value,element){
     })
     .catch(err=>console.error(err))
 }
+
 
 module.exports = router;

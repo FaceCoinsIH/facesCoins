@@ -1,3 +1,4 @@
+
 document.querySelectorAll(".btn-delete").forEach(function(element) {
   element.onclick = function(event) {
    
@@ -25,3 +26,4 @@ function printDelete(coin_data){
     var parent = node.parentNode;
     parent.removeChild(node);
 }
+

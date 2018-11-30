@@ -10,6 +10,7 @@ const user = new Schema({
     image: {type:String, default:'/images/profile.png'},
     fav_coins:  [{type: Schema.Types.ObjectId, ref: 'Coins', unique:true}]
 
+
 }, {
     timestamps: {
         createdAt: "created_at",
