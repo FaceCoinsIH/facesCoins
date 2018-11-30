@@ -7,6 +7,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 const mail = require("../mail/transporter");
 
+
 router.get("/login",  ensureLoggedOut("/main"),(req, res, next) => {
   res.render("auth/login", { message: req.flash("error") });
 });
@@ -63,7 +64,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
       username,
       password: hashPass,
       email: email,
-      confirmationCode: token
+      confirmationCode: token,
     });
 
     newUser.save()
@@ -84,11 +85,13 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
         res.render("auth/signup", { message: err });
       });
   });
+
 });
 
 
 router.get("/confirm/:confirmCode", (req, res, next) => {
     code = req.params.confirmCode;
+
   
     User.findOneAndUpdate({confirmationCode:code}, { $set: {status:'Active'} }, { new: true }).then(user=>{
         res.redirect("/");
@@ -103,3 +106,4 @@ router.get("/logout", (req, res) => {
 });
 
 module.exports = router;
+

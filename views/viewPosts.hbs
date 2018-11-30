@@ -1,9 +1,10 @@
 <header>
+
     <nav>
-         <a href="/main">Home</a>
+        <a href="/main">Home</a>
         <a href="/auth/logout">Log Out</a>
         <a href="/index/createPost">Create Post</a>
-       
+
     </nav>
 </header>
 <h1>{{this.title}}</h1>
@@ -11,17 +12,28 @@
 <p>{{this.content}}</p>
 <p>{{this.author.username}}</p>
 <label for="comments"> Comments:</label>
-<form action="/new-comment" method="POST">
+
+
+{{!-- <form action="/new-comment" method="POST"> --}}
+
     <label for="title">Title:</label>
-    <input type="text" name="title">
-     <label for="content">Content:</label>
     <input type="text" name="content">
-    <input type="submit" value="Comment">
-    <input name="postId" value={{this._id}} hidden>
-</form>
+    <label for="content">Content:</label>
+    <input type="text" name="content">
+
+    <input id="button-comment" type="submit" value="Comment">
+    <input name="content" value={{this._id}} hidden>
+    {{!-- </form> --}}
+
+
 <div class="comments-container">
     {{#each this.comments}}
-        <h2>{{this.title}}</h2>
-        <p> {{this.content}} </p>
+    <h2>{{this.title}}</h2>
+    <p> {{this.content}} </p>
     {{/each}}
 </div>
+
+
+
+    <script src="/javascripts/comment-script.js"></script>
+

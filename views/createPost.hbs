@@ -4,20 +4,42 @@
         <a href="/auth/logout">Log Out</a>
     </nav>
 </header>
-<div class="flex-container">
-    <div class="form-create-post">
-        <h1>Create Your Post</h1>
 
+ <div class="flex-container createPost">
+  
+        {{!-- <h1>Create Your Post</h1> --}}
         <form action="/createPost" method="POST" enctype="multipart/form-data">
-            <label for="content">Title</label>
-            <input type="text" name="title">
-            <label for="content">Content</label>
-            <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
-            <input type="submit" value="create">
-            <input class="inputfile" type="file" name="photo">
+            <div class="uk-comment uk-comment-primary">
+               <h1>Create Your Post</h1>
+                <div class="input-field">
+                    <label for="content">Title</label>
+                    <input type="text" name="title">
+                </div>
+                <div class="input-field">
+                    <label for="content">Content</label>
+                    <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                    <div>
+                        <input type="submit" value="create">
+                        <input class="inputfile" type="file" name="photo">
+
+                    </div>
+                </div>
 
         </form>
 
 
-    </div>
+        
+        {{!-- <div class="flex-container">
+            <div class="form-create-post">
+                <h1>Create Your Post</h1>
+                <form action="/createPost" method="POST" enctype="multipart/form-data">
+                    <label for="content">Title</label>
+                    <input type="text" name="title">
+                    <label for="content">Content</label>
+                    <textarea id="textarea1" class="materialize-textarea" name="content"></textarea>
+                      <input type="submit" value="create">
+                        <input class="inputfile" type="file" name="photo">
+                </form>
+            </div>
+        </div>  --}}
 </div>

@@ -32,7 +32,12 @@ router.get('/delete/:id', (req, res) => {
 
 
 
+
+
 router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
+
+
+
     var v_coins;
     Coins.find()
         .then(coins => {
@@ -44,8 +49,21 @@ router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
 
                     Events.find().limit(3)
                         .then(events => {
-                            console.log(events)
-                            res.render('main', { news: news, coins: coins, events: events });
+
+
+                            
+                            User.findOne({_id: req.user.id})
+                                .then(user => {
+
+                                    Post.find().limit(3)
+                                        .then(post => {
+                                            res.render('main', { news: news, coins: coins, events: events, user: user, post:post});
+
+
+                                        })
+                                })
+
+
                         })
 
 
