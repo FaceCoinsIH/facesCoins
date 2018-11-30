@@ -42,18 +42,18 @@ router.get("/getCripto", (res, req, next) => {
   // });
 
 
-  //  /* get Coins, CoinMarket */
+   /* get Coins, CoinMarket */
   //  coinmarketcap.multi(coins => {
   //   insertCoins(coins.getTop(6));
   // });
 
    /* get News, News Api */
-   newsapi.v2.topHeadlines({
-      sources: "crypto-coins-news"   
-  })  
-  .then(response => {
-    insertNews(response.articles);
-  });
+  //  newsapi.v2.topHeadlines({
+  //     sources: "crypto-coins-news"   
+  // })  
+  // .then(response => {
+  //   insertNews(response.articles);
+  // });
 
 
 });

@@ -1,5 +1,4 @@
-$(document).ready( () => {
-  
+
     document.getElementById("button-comment").onclick = function() {
                
         var title = document.getElementsByName("content")[0].value;
@@ -10,7 +9,11 @@ $(document).ready( () => {
         
         comment.then(comment => printComment(comment.data))
       };
-  })
+
+    
+      
+
+  
 
 
 
@@ -24,9 +27,7 @@ function insertCommnent(commentData){
   .catch(err=>console.log(err))
 }
 
-
 function printComment(comment){
-    console.log("comment",comment);
     
     var divcomment = document.createElement("div");
        divcomment.innerHTML += `
@@ -36,4 +37,4 @@ function printComment(comment){
             <div>${comment.content}</div>
         </div>`;
         document.querySelector(".comments-container").append(divcomment);
-}
+}   

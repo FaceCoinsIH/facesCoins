@@ -1,6 +1,9 @@
 
 <script src="/javascripts/profile.js"></script>
 
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+
 <section>
     <ul id="slide-out" class="sidenav">
         <li>
@@ -65,15 +68,27 @@
             </div> --}}
             <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4">
-                    <i class="material-icons right fas fa-ellipsis-v"></i>
+                  
                     <p>{{this.symbol}}</p>
                     <p>{{this.price_usd}}</p>
                     <a>{{this.percent_change_1h}}</a>
+                
+                {{#if this.fav_coin}}
+                 <i class="fas fa-heart like-icon" name="coinId" value={{this.id}}></i>
+                {{else}}
+                   <i class="far fa-heart like-icon" name="coinId" value={{this.id}}></i>
+                {{/if}}
+                
                 </span>
+                   
                 <p><a href="/showCoin/{{this._id}}">More information</a></p>
+            
             </div>
+           
             <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">What is it?<i class="fa fa-times"></i><p style="font-size:15px">Built for enterprise use, XRP offers banks and payment providers a reliable, on-demand option to source liquidity for cross-border payments. 
+                <span class="card-title grey-text text-darken-4">
+                    {{this.name}} Added at your Favs <i class="fa fa-times"></i>
+                <p style="font-size:15px"> 
                 </p> </span>
                 <p>Here is some more information about this product that is only revealed once clicked on.</p>
             </div>
@@ -126,6 +141,7 @@
 {{/each}}
 </section>
 </section>
+<script src="/javascripts/likes.js"></script>
 
 
 
