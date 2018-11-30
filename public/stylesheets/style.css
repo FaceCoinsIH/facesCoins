@@ -15,6 +15,18 @@ a {
 /*# sourceMappingURL=style.css.map */
 
 
+
+/* LOGIN/SIGNUP */
+
+.signUpLogin {
+    background-image: url('https://www.altran.com/as-content/uploads/sites/12/2017/05/5-0_finance_1600.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+
+
 /* NEWS */
 
 .columnNews {
@@ -62,11 +74,15 @@ a {
 
 .bg-card-user {
     background: rgba(0, 77, 64, .5);
+
+    background-size: 2000px;
+
     padding: 50px 100px;
     position: relative;
     width: 50%;
     right: -20%;
-    margin: 30px;
+    height: 100vh;
+
 }
 
 .truncate>img {
@@ -74,6 +90,7 @@ a {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
 
 
 /* LOGIN */
@@ -89,6 +106,7 @@ a {
 }
 
 
+
 /* PAGE COINS*/
 
 .coinStats {
@@ -98,6 +116,12 @@ a {
 .price {
     margin: 46px;
 }
+
+.coinPrice {
+    padding: 10px;
+    padding-right: 130px;
+}
+
 
 .containerCoin {
     color: white;
@@ -163,12 +187,13 @@ a {
     text-align: center;
 }
 
-
 .profil {
     float: right;
     margin: 10px;
     font-size: 50px;
 }
+
+
 
 .a-button:hover{
     color: white
@@ -176,6 +201,7 @@ a {
 
 .buttons-login-width{
     width: 20rem;    
+
 }
 
 .a-button {
@@ -190,9 +216,80 @@ a {
 }
 
 
+/* POST */
+
+.createPost {
+    background: rgba(0, 77, 64, .5);
+    height: 100vh;
+}
+
+
+/* Container event */
+
+#pagetitle.profile {
+    height: 246px;
+    padding: 20px 0;
+    border-bottom: 1px #E6EDE7 solid;
+}
+
+.cointerEvent {
+    max-width: 1280px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    clear: both;
+    padding: 0 40px;
+}
+
+#pagetitle.profile .logo {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    bottom: -70px;
+    display: block;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, .25);
+    border-radius: 100%;
+    background: #fff url(images/generic-coin-logo.jpg) center no-repeat;
+    background-size: 100%;
+    text-indent: -9999px;
+}
+
+#pagetitle.profile .meta {
+    display: block;
+}
+
+#pagetitle.profile .event-date {
+    font-size: 14px;
+    border-radius: 30px;
+    height: 30px;
+    padding: 0 20px;
+    display: inline-block;
+    color: #333;
+    background: rgba(255, 255, 255, .9);
+    line-height: 30px;
+    margin-right: 15px;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+}
+
+#pagetitle.profile .event-location {
+    font-size: 18px;
+    color: #fff;
+    padding-left: 20px;
+    height: 18px;
+    line-height: 18px;
+    background: url(images/object-event-location.png) left center no-repeat;
+    white-space: nowrap;
+    font-family: "Roboto Slab", serif;
+    font-weight: 300;
+}
+
 .like-icon{
     color: red;
 }
+
 
 
 

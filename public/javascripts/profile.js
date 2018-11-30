@@ -27,3 +27,4 @@ function printDelete(coin_data){
     parent.removeChild(node);
 }
 
+
