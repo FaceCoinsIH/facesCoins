@@ -24,10 +24,10 @@ function insertCommnent(commentData) {
 function printComment(comment) {
   var divcomment = document.createElement("div");
   divcomment.innerHTML += `
-        <div class="comment-info">
-            <div>${comment.author.username}
-            <div>${comment.title}</div>
+        <div class="comment-container">
+            <h2>${comment.author.username}</h2>
+            <p>${comment.title}</p>
             <div>${comment.content}</div>
-        </div>`;
+        </h2>`;
   document.querySelector(".comments-container").append(divcomment);
 }

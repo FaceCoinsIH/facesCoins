@@ -30,6 +30,10 @@ router.get("/showCoin/:id", (req, res, next) => {
     Coins.findById(coinId)
         .then((coin) => {
 
+
+            console.log(coin, coin.name);
+
+
             res.render("coin", { coin, coinName: JSON.stringify(coin.symbol) });
 
 
@@ -118,10 +122,7 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
      
      User.findByIdAndUpdate(req.user.id,{$push:{fav_coins:req.body.coin}})
      .then(()=>{
-         console.log(req.body.coin);
-         Coins.findOneAndUpdate({_id:req.body.coin},{ $set: {fav_coin: true} }, { new: true })
-         .then(()=>{})
-         .catch(err=>{console.error(err)})
+         
      })
      .catch((err=>console.error(err)))
  })
@@ -130,8 +131,8 @@ router.get("/viewPost/:id",ensureLoggedIn('/auth/login'), (req, res, next) => {
     
      User.findByIdAndUpdate( { _id: req.user.id },{ "$pull": { fav_coins: req.body.coin } })
      .then(()=>{
-        Coins.findOneAndUpdate(req.body.coin,{ $set: {fav_coin: false} }, { new: true })
-        .then(coin=> res.json(req.body.coin))
+        res.json(req.body.coin)
+       
         .catch(err=>{console.error(err)})
         
      })

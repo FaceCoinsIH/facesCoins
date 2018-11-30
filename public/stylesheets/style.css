@@ -15,6 +15,7 @@ a {
 /*# sourceMappingURL=style.css.map */
 
 
+
 /* LOGIN/SIGNUP */
 
 .signUpLogin {
@@ -23,6 +24,7 @@ a {
     background-size: cover;
     height: 100%;
 }
+
 
 
 /* NEWS */
@@ -71,12 +73,16 @@ a {
 
 .bg-card-user {
     background: rgba(0, 77, 64, .5);
+
     background-size: 2000px;
+
+
     padding: 50px 100px;
     position: relative;
     width: 50%;
     right: -20%;
     height: 100vh;
+
 }
 
 .truncate>img {
@@ -84,6 +90,7 @@ a {
     margin-top: 6px;
     margin-bottom: 6px;
 }
+
 
 
 /* LOGIN */
@@ -97,6 +104,7 @@ a {
     margin: 20px 10px;
     padding: 28px;
 }
+
 
 
 /* PAGE COINS*/
@@ -113,6 +121,8 @@ a {
     padding: 10px;
     padding-right: 130px;
 }
+
+
 
 .containerCoin {
     color: white;
@@ -184,12 +194,16 @@ a {
     font-size: 50px;
 }
 
-.a-button:hover {
+
+
+.a-button:hover{
     color: white
 }
 
-.buttons-login-width {
-    width: 20rem;
+.buttons-login-width{
+    width: 20rem;    
+
+
 }
 
 .a-button {
@@ -276,9 +290,12 @@ a {
 }
 
 
-.like-icon {
+
+.like-icon{
+
     color: red;
 }
+
 
 
 /* PAGE MAIN POST */

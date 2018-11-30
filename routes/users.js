@@ -33,7 +33,10 @@ router.get('/delete/:id', (req, res) => {
 
 
 
-router.get('/main', ensureLoggedIn('/auth/login'), (req, res, next) => {
+
+router.get('/main',ensureLoggedIn('/auth/login'),(req, res, next) => {
+
+
 
     var v_coins;
     Coins.find()
@@ -48,15 +51,17 @@ router.get('/main', ensureLoggedIn('/auth/login'), (req, res, next) => {
                         .then(events => {
 
 
-                            User.findOne({ _id: req.user.id })
-                                .then(user =>  {
-                                    User.find().limit(3)
+                            
+                            User.findOne({_id: req.user.id})
+                                .then(user => {
+
+                                    Post.find().limit(3)
                                         .then(post => {
-                                            res.render('main', { news: news, coins: coins, events: events, user: user, post: post });
+                                            res.render('main', { news: news, coins: coins, events: events, user: user, post:post});
+
 
                                         })
                                 })
-
 
 
                         })

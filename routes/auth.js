@@ -64,7 +64,7 @@ router.post("/signup", ensureLoggedOut(), (req, res, next) => {
       username,
       password: hashPass,
       email: email,
-      confirmationCode: token
+      confirmationCode: token,
     });
 
     newUser.save()
