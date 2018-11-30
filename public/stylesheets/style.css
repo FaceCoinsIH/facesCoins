@@ -15,7 +15,6 @@ a {
 /*# sourceMappingURL=style.css.map */
 
 
-
 /* LOGIN/SIGNUP */
 
 .signUpLogin {
@@ -26,14 +25,12 @@ a {
 }
 
 
-
 /* NEWS */
 
 .columnNews {
     margin: 13px;
     color: white;
     border-radius: 5px;
-
 }
 
 .columnNews p {
@@ -74,15 +71,12 @@ a {
 
 .bg-card-user {
     background: rgba(0, 77, 64, .5);
-
     background-size: 2000px;
-
     padding: 50px 100px;
     position: relative;
     width: 50%;
     right: -20%;
     height: 100vh;
-
 }
 
 .truncate>img {
@@ -90,7 +84,6 @@ a {
     margin-top: 6px;
     margin-bottom: 6px;
 }
-
 
 
 /* LOGIN */
@@ -104,7 +97,6 @@ a {
     margin: 20px 10px;
     padding: 28px;
 }
-
 
 
 /* PAGE COINS*/
@@ -121,7 +113,6 @@ a {
     padding: 10px;
     padding-right: 130px;
 }
-
 
 .containerCoin {
     color: white;
@@ -193,28 +184,24 @@ a {
     font-size: 50px;
 }
 
-
-
-.a-button:hover{
+.a-button:hover {
     color: white
 }
 
-.buttons-login-width{
-    width: 20rem;    
-
+.buttons-login-width {
+    width: 20rem;
 }
 
 .a-button {
     background-color: white!important;
     color: rgb(35, 151, 135)!important;
-    border: 1px solid rgb(35, 151, 135)!important ;
+    border: 1px solid rgb(35, 151, 135)!important;
 }
 
-.center-button{
+.center-button {
     display: flex;
     justify-content: center;
 }
-
 
 
 /* POST */
@@ -287,8 +274,55 @@ a {
     font-weight: 300;
 }
 
-
-.like-icon{
+.like-icon {
     color: red;
 }
 
+
+/* PAGE MAIN POST */
+
+.news-feed {
+    width: 100%;
+    clear: both;
+    padding: 40px 0 0;
+}
+
+.body-home .news-feed {
+    padding-bottom: 60px;
+}
+
+.full-with-section {
+    padding: 60px 0;
+    width: 100%;
+    clear: both;
+    border-bottom: 1px rgba(255, 255, 255, .2) solid;
+}
+
+.containerPostsss {
+    max-width: 1280px;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    clear: both;
+    padding: 0 40px;
+}
+
+.news-feed .small-post {
+    width: 48.2%;
+    height: 400px;
+}
+
+.post {
+    float: left;
+    background: #F4F4F3;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    border: 2px #E5E5E5 solid;
+    position: relative;
+}
+
+.news-feed .post .article {
+    width: 100%;
+    clear: both;
+}
