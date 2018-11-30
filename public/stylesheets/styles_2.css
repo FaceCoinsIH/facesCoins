@@ -19,6 +19,7 @@
   } 
 
 
+
 .container-events{
     display: flex!important;
     flex-direction: column;
@@ -63,3 +64,4 @@
 .card-coins{
     border-radius: 20px !important;
 }
+
