@@ -9,6 +9,13 @@ const user = new Schema({
     status: { type: String, enum: ['Pending Confirmation', 'Active', 'Pending Confirmation'], default: 'Pending Confirmation' },
 
 
+    image: String,
+    fav_coins: [{ type: Schema.Types.ObjectId, ref: 'Coins', unique: true }]
+
+
+
+
+
 }, {
     timestamps: {
         createdAt: "created_at",
